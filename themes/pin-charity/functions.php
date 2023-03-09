@@ -288,7 +288,45 @@ add_action( 'wp_print_footer_scripts', 'pin_charity_skip_link_focus' );
 /**
  * Load Dashicons
 */ 
- 
+function load_charity_post_types(){
+	register_post_type("News",array(
+		"public"=>True,
+		"labels"=>array(
+			"add_new_item" => "Add new News",
+			"edit_item"=>"Edit News",
+			"all_items"=>"All News",
+			"singular_name"=> "News"
+
+		),
+		"menu_icon"=>"dashicons-calendar"
+
+	));
+	// register_post_type("volunteer opertunities",array(
+	// 	"public"=>True,
+	// 	"labels"=>array(
+	// 		"add_new_item" => "Add new oppertunity",
+	// 		"edit_item"=>"Edit oppertunity",
+	// 		"all_items"=>"All oppertunities",
+	// 		"singular_name"=> "Oppertunity"
+
+	// 	),
+	// 	"menu_icon"=>"dashicons-calendar"
+
+	// ));
+	// register_post_type("Impact Story",array(
+	// 	"public"=>True,
+	// 	"labels"=>array(
+	// 		"add_new_item" => "Add new story",
+	// 		"edit_item"=>"Edit story",
+	// 		"all_items"=>"All stories ",
+	// 		"singular_name"=> "story"
+
+	// 	),
+	// 	"menu_icon"=>"dashicons-calendar"
+
+	// ));
+}
+
 function pin_charity_load_dashicons(){
    wp_enqueue_style('dashicons');
 }
@@ -300,3 +338,4 @@ if ( ! function_exists( 'wp_body_open' ) ) {
         do_action( 'wp_body_open' );
     }
 }
+
