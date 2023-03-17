@@ -4,6 +4,5 @@
         the_post();
         echo the_title() . "<br>";
     }
-    echo "hr";
-    get_footer();
+    // get_footer();
 ?>
