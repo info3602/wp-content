@@ -102,6 +102,6 @@
     }
     
     add_action( 'init', 'register_custom_types' );
-    
+
     
 ?>
