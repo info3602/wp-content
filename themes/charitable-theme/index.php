@@ -10,10 +10,10 @@
 </section>
 
 <div class="category-bar">
-  <button>Category 1</button>
-  <button>Category 2</button>
-  <button>Category 3</button>
-  <button>Category 4</button>
+  <a href=""></a></a><button>Category 1</button></a>
+  <a href=""></a></a><button>Category 2</button></a>
+  <a href=""></a></a><button>Category 3</button></a>
+  <a href=""></a></a><button>Category 4</button></a>
 </div>
 
 <div class="post-cards">
