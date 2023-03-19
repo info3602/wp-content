@@ -25,7 +25,7 @@
             "description" => "",
             "public" => true,
             "rewrite" => [ "slug" => "news", "with_front" => true ],
-            "supports" => [ "title", "editor", "thumbnail", "excerpt", "custom-fields", "comments", "author" ],
+            "supports" => [ 'thumbnail', "title", "editor", "excerpt", "custom-fields", "comments", "author" ],
           
         ];
     
