@@ -16,7 +16,8 @@ get_header();
             <h1 class="display-3 text-white mb-4 animated slideInDown">
               Help families in Turkey and Syria today
             </h1>
-            <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Donate</a>
+            <a href=<?php echo site_url("/donate"); ?>
+              class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Donate</a>
           </div>
         </div>
       </div>
@@ -30,7 +31,8 @@ get_header();
             <h1 class="display-3 text-white mb-4 animated slideInDown">
               Hundreds of thousand lives affected by this tragedy
             </h1>
-            <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Donate</a>
+            <a href=<?php echo site_url("/donate"); ?>
+              class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Donate</a>
           </div>
         </div>
       </div>
@@ -70,7 +72,7 @@ get_header();
           Please give what you can today to help families in need.
         </p>
 
-        <a class="btn btn-primary py-3 px-5 mt-2" href="">Donate Now</a>
+        <a class="btn btn-primary py-3 px-5 mt-2" href=<?php echo site_url("/donate"); ?>>Donate Now</a>
       </div>
       <div class="col-lg-6">
         <div class="row g-3">
@@ -195,7 +197,7 @@ get_header();
             </div>
           </div>
         </div>
-        <a class="btn btn-primary py-3 px-5 mt-2" href="">Donate Now</a>
+        <a class="btn btn-primary py-3 px-5 mt-2" href=<?php echo site_url("/donate"); ?>>Donate Now</a>
       </div>
     </div>
   </div>
