@@ -19,4 +19,5 @@ function enqueue_scripts()
     wp_enqueue_style('functions_1', get_template_directory_uri() . "/js/main.js");
 }
 add_action('wp_enqueue_scripts', 'enqueue_scripts');
+register_nav_menu('header', 'Header');
 ?>
