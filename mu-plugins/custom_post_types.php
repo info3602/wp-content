@@ -36,8 +36,8 @@
          */
     
         $labels = [
-            "name" => "Volunteer Oportunities", 
-            "singular_name" => "Volunteer Oportunity", 
+            "name" => "Volunteer Opportunities", 
+            "singular_name" => "Volunteer Opportunity", 
             "menu_name" => "Volunteer Opportunities", 
             "all_items" => "All Opportunities", 
             "add_new" => "Add Opportunity", 
@@ -51,7 +51,7 @@
         ];
     
         $args = [
-            "label" => "Volunteer Oportunities", 
+            "label" => "Volunteer Opportunities", 
             "labels" => $labels,
             "description" => "",
             "public" => true,
@@ -59,13 +59,13 @@
             "rest_controller_class" => "WP_REST_Posts_Controller",
             "has_archive" => false,
 
-            "rewrite" => [ "slug" => "oportunities", "with_front" => true ],
+            "rewrite" => [ "slug" => "opportunities", "with_front" => true ],
             "query_var" => true,
             "supports" => [ "title", "editor", "thumbnail", "excerpt", "custom-fields", "comments", "author" ],
             
         ];
     
-        register_post_type( "oportunities", $args );
+        register_post_type( "opportunities", $args );
     
         /**
          * Post Type: Impact Stories.
