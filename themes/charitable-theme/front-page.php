@@ -29,7 +29,7 @@ get_header();
               Earthquake Appeal
             </h6>
             <h1 class="display-3 text-white mb-4 animated slideInDown">
-              Hundreds of thousand lives affected by this tragedy
+              Hundreds of thousand of lives affected by this tragedy
             </h1>
             <a href=<?php echo site_url("/donate"); ?>
               class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Donate</a>
