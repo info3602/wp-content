@@ -88,7 +88,13 @@
                                             Strategy</a>
                                     </div>
                                 </div>
-
+                                <?php
+                                if (is_user_logged_in()) { ?>
+                                    <a href=<?php echo wp_logout_url(); ?> class="nav-item nav-link">Logout</a>
+                                <?php } else { ?>
+                                    <a href=<?php echo wp_login_url(); ?> class="nav-item nav-link">Login</a>
+                                    <a href=<?php echo site_url("/wp-signup.php"); ?> class="nav-item nav-link">Signup</a>
+                                <?php } ?>
                             </div>
                         </div>
                     </nav>
