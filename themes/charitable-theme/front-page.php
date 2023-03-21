@@ -102,7 +102,7 @@ get_header();
       <h6 class="section-title text-start text-primary text-uppercase">
         Featured
       </h6>
-      <h1 class="mb-5">Impact Stories</h1>
+      <h1 class="mb-5">Latest News</h1>
     </div>
     <div class="row g-4">
       <?php
@@ -110,23 +110,23 @@ get_header();
         array(
           'posts_per_page' =>
           -1,
-          'post_type' => 'post'
+          'post_type' => 'news'
         )
       );
       while ($news->have_posts()) {
         $news->the_post(); ?>
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-          <a class="service-item rounded" href="">
+          <a class="service-item rounded" href=<?php the_permalink(); ?>>
             <div>
               <div>
                 <img class="w-75" src=<?php echo get_template_directory_uri() . "/img/carousel-4.jpg" ?> alt="Image">
               </div>
             </div>
             <h5 class="mb-3">
-              <?php the_title(); ?>
+              <?php echo wp_trim_words(get_the_title(), 6); ?>
             </h5>
             <p class="text-body mb-0">
-              <?php the_content(); ?>
+              <?php echo wp_trim_words(get_the_content(), 10); ?>
             </p>
           </a>
         </div>
@@ -219,23 +219,23 @@ get_header();
         array(
           'posts_per_page' =>
           -1,
-          'post_type' => 'post'
+          'post_type' => 'oportunities'
         )
       );
       while ($news->have_posts()) {
         $news->the_post(); ?>
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-          <a class="service-item rounded" href="">
+          <a class="service-item rounded" href=<?php the_permalink(); ?>>
             <div>
               <div>
                 <img class="w-75" src=<?php echo get_template_directory_uri() . "/img/carousel-4.jpg" ?> alt="Image">
               </div>
             </div>
             <h5 class="mb-3">
-              <?php the_title(); ?>
+              <?php echo wp_trim_words(get_the_title(), 6); ?>
             </h5>
             <p class="text-body mb-0">
-              <?php the_content(); ?>
+              <?php echo wp_trim_words(get_the_content(), 10); ?>
             </p>
           </a>
         </div>
