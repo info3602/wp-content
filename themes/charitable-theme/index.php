@@ -16,6 +16,7 @@
   <a href="<?php echo get_post_type_archive_link("story")?>" >Impact Stories</a>
 </div>
 <?php
+
   
   $args = array(
       'post_type' => "any",
@@ -52,4 +53,5 @@ wp_reset_postdata();
 ?>
 </div>
 <?php get_footer();
+
 ?>

@@ -16,7 +16,8 @@ get_header();
             <h1 class="display-3 text-white mb-4 animated slideInDown">
               Help families in Turkey and Syria today
             </h1>
-            <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Donate</a>
+            <a href=<?php echo site_url("/donate"); ?>
+              class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Donate</a>
           </div>
         </div>
       </div>
@@ -28,9 +29,10 @@ get_header();
               Earthquake Appeal
             </h6>
             <h1 class="display-3 text-white mb-4 animated slideInDown">
-              Hundreds of thousand lives affected by this tragedy
+              Hundreds of thousand of lives affected by this tragedy
             </h1>
-            <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Donate</a>
+            <a href=<?php echo site_url("/donate"); ?>
+              class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Donate</a>
           </div>
         </div>
       </div>
@@ -70,7 +72,7 @@ get_header();
           Please give what you can today to help families in need.
         </p>
 
-        <a class="btn btn-primary py-3 px-5 mt-2" href="">Donate Now</a>
+        <a class="btn btn-primary py-3 px-5 mt-2" href=<?php echo site_url("/donate"); ?>>Donate Now</a>
       </div>
       <div class="col-lg-6">
         <div class="row g-3">
@@ -100,7 +102,7 @@ get_header();
       <h6 class="section-title text-start text-primary text-uppercase">
         Featured
       </h6>
-      <h1 class="mb-5">Impact Stories</h1>
+      <h1 class="mb-5">Latest News</h1>
     </div>
     <div class="row g-4">
       <?php
@@ -108,23 +110,23 @@ get_header();
         array(
           'posts_per_page' =>
           -1,
-          'post_type' => 'post'
+          'post_type' => 'news'
         )
       );
       while ($news->have_posts()) {
         $news->the_post(); ?>
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-          <a class="service-item rounded" href="">
+          <a class="service-item rounded" href=<?php the_permalink(); ?>>
             <div>
               <div>
                 <img class="w-75" src=<?php echo get_template_directory_uri() . "/img/carousel-4.jpg" ?> alt="Image">
               </div>
             </div>
             <h5 class="mb-3">
-              <?php the_title(); ?>
+              <?php echo wp_trim_words(get_the_title(), 6); ?>
             </h5>
             <p class="text-body mb-0">
-              <?php the_content(); ?>
+              <?php echo wp_trim_words(get_the_content(), 10); ?>
             </p>
           </a>
         </div>
@@ -195,7 +197,7 @@ get_header();
             </div>
           </div>
         </div>
-        <a class="btn btn-primary py-3 px-5 mt-2" href="">Donate Now</a>
+        <a class="btn btn-primary py-3 px-5 mt-2" href=<?php echo site_url("/donate"); ?>>Donate Now</a>
       </div>
     </div>
   </div>
@@ -217,23 +219,23 @@ get_header();
         array(
           'posts_per_page' =>
           -1,
-          'post_type' => 'post'
+          'post_type' => 'story'
         )
       );
       while ($news->have_posts()) {
         $news->the_post(); ?>
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-          <a class="service-item rounded" href="">
+          <a class="service-item rounded" href=<?php the_permalink(); ?>>
             <div>
               <div>
                 <img class="w-75" src=<?php echo get_template_directory_uri() . "/img/carousel-4.jpg" ?> alt="Image">
               </div>
             </div>
             <h5 class="mb-3">
-              <?php the_title(); ?>
+              <?php echo wp_trim_words(get_the_title(), 6); ?>
             </h5>
             <p class="text-body mb-0">
-              <?php the_content(); ?>
+              <?php echo wp_trim_words(get_the_content(), 10); ?>
             </p>
           </a>
         </div>
