@@ -15,30 +15,36 @@
   <a href="<?php echo get_post_type_archive_link("opportunities")?>">Volunteer Opportunities</a>
   <a href="<?php echo get_post_type_archive_link("story")?>" >Impact Stories</a>
 </div>
+<?php
+  wp_reset_postdata();
+  $args = array(
+      'post_type' => 'any',
+      'posts_per_page' => 6,
+      'orderby' => 'date',
+      'order' => 'DESC',
+  );
 
+  $posts_query = new WP_Query( $args );
+  
+?>
 
 
 <div class="post-cards">
 <?php
-while (have_posts()) {
+while ($posts_query->have_posts()) {
     the_post();?>
-
-    
         <a href="#" class="post-card">
             <div class="post-card-image" style="background-image:url(https://picsum.photos/200/300)"></div>
             <div class="post-card-content">
-            <span class="post-card-category">Category</span>
+            <span class="post-card-category"><?php echo get_post_type()?></span>
             <h3 class="post-card-title"><?php the_title()?></h3>
             <span class="post-card-date"><?php the_date()?></span>
             </div>
         </a>
-        
-        <!-- add more post cards here -->
-    
 
-
-
-<?php } ?>
+<?php }
+  
+?>
 </div>
 <?php get_footer();
 ?>

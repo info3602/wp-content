@@ -29,7 +29,7 @@ while (have_posts()) {
         <a href="<?php the_permalink()?>" class="post-card">
             <div class="post-card-image" style="background-image:url(https://picsum.photos/200/300)"></div>
             <div class="post-card-content">
-            <span class="post-card-category">Category</span>
+            <span class="post-card-category"><?php echo get_post_type()?></span>
             <h3 class="post-card-title"><?php the_title()?></h3>
             <span class="post-card-date"><?php the_date()?></span>
             </div>
