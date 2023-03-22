@@ -219,7 +219,7 @@ get_header();
         array(
           'posts_per_page' =>
           -1,
-          'post_type' => 'oportunities'
+          'post_type' => 'story'
         )
       );
       while ($news->have_posts()) {
