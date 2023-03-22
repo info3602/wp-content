@@ -24,6 +24,7 @@
             "labels" => $labels,
             "description" => "",
             "public" => true,
+            "has_archive"=>true,
             "rewrite" => [ "slug" => "news", "with_front" => true ],
             "supports" => [ 'thumbnail', "title", "editor", "excerpt", "custom-fields", "comments", "author" ],
           
@@ -36,8 +37,8 @@
          */
     
         $labels = [
-            "name" => "Volunteer Oportunities", 
-            "singular_name" => "Volunteer Oportunity", 
+            "name" => "Volunteer Opportunities", 
+            "singular_name" => "Volunteer Opportunity", 
             "menu_name" => "Volunteer Opportunities", 
             "all_items" => "All Opportunities", 
             "add_new" => "Add Opportunity", 
@@ -46,26 +47,22 @@
             "new_item" => "New Opportunity", 
             "view_item" => "View Opportunity", 
             "view_items" => "View Opportunities", 
-            "archives" => "Opportunity Archives", 
             "item_updated" => "Updated Opportunity", 
         ];
     
         $args = [
-            "label" => "Volunteer Oportunities", 
+            "label" => "Volunteer Opportunities", 
             "labels" => $labels,
             "description" => "",
             "public" => true,
-            "show_ui" => true,
-            "rest_controller_class" => "WP_REST_Posts_Controller",
-            "has_archive" => false,
-
-            "rewrite" => [ "slug" => "oportunities", "with_front" => true ],
+            "has_archive"=>true,
+            "rewrite" => [ "slug" => "opportunities", "with_front" => true ],
             "query_var" => true,
             "supports" => [ "title", "editor", "thumbnail", "excerpt", "custom-fields", "comments", "author" ],
             
         ];
     
-        register_post_type( "oportunities", $args );
+        register_post_type( "opportunities", $args );
     
         /**
          * Post Type: Impact Stories.
@@ -82,7 +79,6 @@
             "new_item" => "New Impact Story", 
             "view_item" => "View Impact Story", 
             "view_items" => "View Impact Stories", 
-            "archives" => "Impact Story Archive", 
             "item_updated" => "Impact Story Updated", 
         ];
     
@@ -91,9 +87,7 @@
             "labels" => $labels,
             "description" => "",
             "public" => true,
-            "show_ui" => true,
-            "rest_namespace" => "wp/v2",
-            "has_archive" => false,
+            "has_archive"=>true,
             "rewrite" => [ "slug" => "story", "with_front" => true ],
             "supports" => [ "title", "editor", "thumbnail", "excerpt", "custom-fields", "comments", "author" ],
         ];
