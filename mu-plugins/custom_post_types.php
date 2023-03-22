@@ -24,8 +24,9 @@
             "labels" => $labels,
             "description" => "",
             "public" => true,
+            "has_archive"=>true,
             "rewrite" => [ "slug" => "news", "with_front" => true ],
-            "supports" => [ "title", "editor", "thumbnail", "excerpt", "custom-fields", "comments", "author" ],
+            "supports" => [ 'thumbnail', "title", "editor", "excerpt", "custom-fields", "comments", "author" ],
           
         ];
     
@@ -46,7 +47,6 @@
             "new_item" => "New Opportunity", 
             "view_item" => "View Opportunity", 
             "view_items" => "View Opportunities", 
-            "archives" => "Opportunity Archives", 
             "item_updated" => "Updated Opportunity", 
         ];
     
@@ -58,7 +58,6 @@
             "show_ui" => true,
             "rest_controller_class" => "WP_REST_Posts_Controller",
             "has_archive" => false,
-
             "rewrite" => [ "slug" => "opportunities", "with_front" => true ],
             "query_var" => true,
             "supports" => [ "title", "editor", "thumbnail", "excerpt", "custom-fields", "comments", "author" ],
@@ -82,7 +81,6 @@
             "new_item" => "New Impact Story", 
             "view_item" => "View Impact Story", 
             "view_items" => "View Impact Stories", 
-            "archives" => "Impact Story Archive", 
             "item_updated" => "Impact Story Updated", 
         ];
     
@@ -91,9 +89,7 @@
             "labels" => $labels,
             "description" => "",
             "public" => true,
-            "show_ui" => true,
-            "rest_namespace" => "wp/v2",
-            "has_archive" => false,
+            "has_archive"=>true,
             "rewrite" => [ "slug" => "story", "with_front" => true ],
             "supports" => [ "title", "editor", "thumbnail", "excerpt", "custom-fields", "comments", "author" ],
         ];
