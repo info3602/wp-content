@@ -16,10 +16,10 @@
   <a href="<?php echo get_post_type_archive_link("story")?>" >Impact Stories</a>
 </div>
 <?php
-  wp_reset_postdata();
+  
   $args = array(
-      'post_type' => 'any',
-      'posts_per_page' => 6,
+      'post_type' => "any",
+      'posts_per_page' => -1,
       'orderby' => 'date',
       'order' => 'DESC',
   );
@@ -32,8 +32,11 @@
 <div class="post-cards">
 <?php
 while ($posts_query->have_posts()) {
-    the_post();?>
-        <a href="#" class="post-card">
+  $posts_query->the_post();
+    if((get_post_type() != "page" ) and (get_post_type() != "post" ) ){
+  ?>
+    
+        <a href="<?php echo the_permalink()?>" class="post-card">
             <div class="post-card-image" style="background-image:url(https://picsum.photos/200/300)"></div>
             <div class="post-card-content">
             <span class="post-card-category"><?php echo get_post_type()?></span>
@@ -43,6 +46,8 @@ while ($posts_query->have_posts()) {
         </a>
 
 <?php }
+  }
+wp_reset_postdata();
   
 ?>
 </div>
