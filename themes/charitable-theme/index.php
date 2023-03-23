@@ -8,12 +8,12 @@
     <h2 class="banner-image-subtitle">--This the blog--</h2>
   </div>
 </section>
-
+<!-- get_post_type_archive_link("post") -->
 <div class="category-bar">
-  <a href="<?php echo get_post_type_archive_link("post")?>" class="active" >All</a>
-  <a href="<?php echo get_post_type_archive_link("news")?>">News</a>
-  <a href="<?php echo get_post_type_archive_link("opportunities")?>">Volunteer Opportunities</a>
-  <a href="<?php echo get_post_type_archive_link("story")?>" >Impact Stories</a>
+  <a href="<?php echo site_url("/blog")?>" class="active" >All</a>
+  <a href="<?php echo site_url("/news")?>">News</a>
+  <a href="<?php echo site_url("/opportunities")?>">Volunteer Opportunities</a>
+  <a href="<?php echo site_url("/story")?>" >Impact Stories</a>
 </div>
 <?php
 
@@ -29,29 +29,48 @@
   
 ?>
 
-
-<div class="post-cards">
-<?php
-while ($posts_query->have_posts()) {
-  $posts_query->the_post();
-    if((get_post_type() != "page" ) and (get_post_type() != "post" ) ){
-  ?>
-    
-        <a href="<?php echo the_permalink()?>" class="post-card">
-            <div class="post-card-image" style="background-image:url(https://picsum.photos/200/300)"></div>
-            <div class="post-card-content">
-            <span class="post-card-category"><?php echo get_post_type()?></span>
-            <h3 class="post-card-title"><?php the_title()?></h3>
-            <span class="post-card-date"><?php the_date()?></span>
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="row g-4">
+      <?php
+      while ($posts_query->have_posts()) {
+        $posts_query->the_post(); 
+        if((get_post_type() != "post") and (get_post_type() != "page")){
+        ?>
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+          <a class="service-item rounded" href=<?php the_permalink(); ?>>
+            <h5 class="mb-3">
+              <?php echo strtoupper(get_post_type()); ?>
+            </h5>
+            <div>
+              <div>
+                <img class="w-75" src=<?php echo get_template_directory_uri() . "/img/carousel-4.jpg" ?> alt="Image">
+              </div>
             </div>
-        </a>
+            <p class="text-body mb-0">
+              <?php echo the_date(); ?>
+            </p>
+            <h5 class="mb-3">
+              <?php echo wp_trim_words(get_the_title(), 6); ?>
+            </h5>
+            <p class="text-body mb-0">
+              <?php echo wp_trim_words(get_the_content(), 10); ?>
+            </p>
 
-<?php }
-  }
-wp_reset_postdata();
-  
-?>
+
+          </a>
+        </div>
+        <?php
+        }
+      }
+      wp_reset_postdata();
+      ?>
+    </div>
+  </div>
 </div>
-<?php get_footer();
+
+<?php 
+  echo paginate_links();
+  get_footer();
 
 ?>
