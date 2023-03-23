@@ -17,7 +17,7 @@ get_header();
               Help families in Turkey and Syria today
             </h1>
             <a href=<?php echo site_url("/donate"); ?>
-              class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Donate</a>
+              class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Donate Now</a>
           </div>
         </div>
       </div>
@@ -32,7 +32,7 @@ get_header();
               Hundreds of thousand of lives affected by this tragedy
             </h1>
             <a href=<?php echo site_url("/donate"); ?>
-              class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Donate</a>
+              class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Donate Now</a>
           </div>
         </div>
       </div>
