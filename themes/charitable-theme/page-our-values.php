@@ -1,11 +1,35 @@
 <?php get_header() ?>
 
+<!-- Page Header Start -->
+<div class="container-fluid page-header mb-5 p-0"
+    style="background-image: url(<?php echo get_theme_file_uri("img/carousel-3.jpg") ?>);">
+    <div class="container-fluid page-header-inner py-5">
+        <div class="container text-center pb-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">
+                <?php the_title(); ?>
+            </h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
 <!-- Values Start -->
 <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h6 class="section-title text-center text-primary text-uppercase">Our Values</h6>
             <h1 class="mb-5">Our work is guided by these <span class="text-primary text-uppercase">Values</span></h1>
+        </div>
+
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+
         </div>
 
         <div class="row g-4">
@@ -91,7 +115,7 @@
 </div>
 <!-- Values End -->
 
-<!-- Video Start -->
+<!-- Split Start -->
 <div class="container-xxl py-5 px-0 wow zoomIn" data-wow-delay="0.1s">
     <div class="row g-0">
         <div class="col-md-6 bg-dark d-flex align-items-center">
@@ -104,13 +128,13 @@
                 <a href="" class="btn btn-primary py-md-3 px-md-5 me-3">Donate Now</a>
             </div>
         </div>
-        <div class="col-md-6">
-            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.5s" src=<?php echo get_template_directory_uri() . "/img/carousel-5.jpg" ?>>
+        <div class="col-md-6 d-flex align-items-center"
+            style="background-image: url(<?php echo get_theme_file_uri("/img/carousel-3.jpg"); ?>)">
         </div>
     </div>
 </div>
 
-<!-- Video Start -->
+<!-- Split Start -->
 
 
 <?php get_footer() ?>
