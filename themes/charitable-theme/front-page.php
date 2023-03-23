@@ -17,7 +17,7 @@ get_header();
               Help families in Turkey and Syria today
             </h1>
             <a href=<?php echo site_url("/donate"); ?>
-              class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Donate</a>
+              class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Donate Now</a>
           </div>
         </div>
       </div>
@@ -32,7 +32,7 @@ get_header();
               Hundreds of thousand of lives affected by this tragedy
             </h1>
             <a href=<?php echo site_url("/donate"); ?>
-              class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Donate</a>
+              class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Donate Now</a>
           </div>
         </div>
       </div>
@@ -246,6 +246,70 @@ get_header();
   </div>
 </div>
 <!-- Stories End -->
+
+<!-- Split Start -->
+<div class="container-xxl py-5 px-0 wow zoomIn" data-wow-delay="0.1s">
+  <div class="row g-0">
+    <div class="col-md-6 bg-dark d-flex align-items-center">
+      <div class="p-5">
+        <h6 class="section-title text-start text-white text-uppercase mb-3">Help Us</h6>
+        <h1 class="text-white mb-4">Make a difference today</h1>
+        <p class="text-white mb-4">When a disaster strikes, recovery efforts led by people who live and work in
+          affected communities are often overlooked and underfunded. Charitable is changing this reality.
+        </p>
+        <a href="" class="btn btn-primary py-md-3 px-md-5 me-3">Donate Now</a>
+      </div>
+    </div>
+    <div class="col-md-6 d-flex align-items-center"
+      style="background-image: url(<?php echo get_theme_file_uri("/img/carousel-3.jpg"); ?>)">
+    </div>
+  </div>
+</div>
+
+<!-- Split Start -->
+
+<!-- Opportunities Start -->
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="wow fadeInUp" data-wow-delay="0.1s">
+      <h6 class="section-title text-start text-primary text-uppercase">
+        Featured
+      </h6>
+      <h1 class="mb-5">Volunteering Opportunities</h1>
+    </div>
+    <div class="row g-4">
+      <?php
+      $news = new WP_Query(
+        array(
+          'posts_per_page' =>
+          -1,
+          'post_type' => 'opportunities'
+        )
+      );
+      while ($news->have_posts()) {
+        $news->the_post(); ?>
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+          <a class="service-item rounded" href=<?php the_permalink(); ?>>
+            <div>
+              <div>
+                <img class="w-75" src=<?php echo get_template_directory_uri() . "/img/carousel-4.jpg" ?> alt="Image">
+              </div>
+            </div>
+            <h5 class="mb-3">
+              <?php echo wp_trim_words(get_the_title(), 6); ?>
+            </h5>
+            <p class="text-body mb-0">
+              <?php echo wp_trim_words(get_the_content(), 10); ?>
+            </p>
+          </a>
+        </div>
+        <?php
+      }
+      ?>
+    </div>
+  </div>
+</div>
+<!-- Opportunities End -->
 
 <?php
 get_footer();

@@ -79,13 +79,13 @@
                                 <a href=<?php echo site_url("/donate"); ?> class="nav-item nav-link">Donate</a>
                                 <a href=<?php echo site_url("/blog"); ?> class="nav-item nav-link">Blog</a>
                                 <div class="nav-item dropdown">
-                                    <a href=<?php echo site_url("/about-us"); ?> class="nav-link dropdown-toggle"
-                                        data-bs-toggle="dropdown">About Us</a>
+                                    <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">About Us</a>
                                     <div class="dropdown-menu rounded-0 m-0">
-                                        <a href=<?php echo site_url("/our-goals"); ?> class="dropdown-item">Our
-                                            Goals</a>
-                                        <a href=<?php echo site_url("/our-strategy"); ?> class="dropdown-item">Our
-                                            Strategy</a>
+                                        <a href=<?php echo site_url("/our-mission"); ?> class="dropdown-item">Our
+                                            Mission</a>
+                                        <a href=<?php echo site_url("/our-team"); ?> class="dropdown-item">Our Team</a>
+                                        <a href=<?php echo site_url("/our-values"); ?> class="dropdown-item">Our
+                                            Values</a>
                                     </div>
                                 </div>
                                 <?php
