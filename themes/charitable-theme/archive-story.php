@@ -10,34 +10,53 @@
 </section>
 
 <div class="category-bar">
-  <a href="<?php echo get_post_type_archive_link("post")?>" >All</a>
-  <a href="<?php echo get_post_type_archive_link("news")?>">News</a>
-  <a href="<?php echo get_post_type_archive_link("opportunities")?>">Volunteer Opportunities</a>
-  <a href="<?php echo get_post_type_archive_link("story")?>" class="active">Impact Stories</a>
+  <a href="<?php echo site_url("/blog")?>">All</a>
+  <a href="<?php echo site_url("/news")?>" >News</a>
+  <a href="<?php echo site_url("/opportunities")?>">Volunteer Opportunities</a>
+  <a href="<?php echo site_url("/story")?>" class="active">Impact Stories</a>
 </div>
 
 
-<div class="post-cards">
-<?php
-while (have_posts()) {
-    the_post();?>
+<div class="container-xxl py-5">
+  <div class="container">
 
-    
-        <a href="<?php the_permalink()?>" class="post-card">
-            <div class="post-card-image" style="background-image:url(https://picsum.photos/200/300)"></div>
-            <div class="post-card-content">
-            <span class="post-card-category"><?php echo get_post_type()?></span>
-            <h3 class="post-card-title"><?php the_title()?></h3>
-            <span class="post-card-date"><?php the_date()?></span>
-            </div>
-        </a>
+    <div class="row g-4">
+    <?php
+      while (have_posts()) {
+        the_post(); 
         
-        <!-- add more post cards here -->
-    
+        ?>
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+          <a class="service-item rounded" href=<?php the_permalink(); ?>>
+            <h5 class="mb-3">
+              <?php echo strtoupper(get_post_type()); ?>
+            </h5>
+            <div>
+              <div>
+                <img class="w-75" src=<?php echo get_template_directory_uri() . "/img/carousel-4.jpg" ?> alt="Image">
+              </div>
+            </div>
+            <p class="text-body mb-0">
+              <?php echo the_date(); ?>
+            </p>
+            <h5 class="mb-3">
+              <?php echo wp_trim_words(get_the_title(), 6); ?>
+            </h5>
+            <p class="text-body mb-0">
+              <?php echo wp_trim_words(get_the_content(), 10); ?>
+            </p>
 
 
-
-<?php } ?>
+          </a>
+        </div>
+        <?php
+        }
+      
+      ?>
+    </div>
+  </div>
 </div>
-<?php get_footer();
+<?php 
+  echo paginate_links();
+  get_footer();
 ?>
