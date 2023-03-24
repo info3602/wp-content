@@ -1,14 +1,26 @@
 
 <?php get_header();?>
 
-<section class="banner-image-section" style= "background-image: url(https://picsum.photos/200/300);" >
-  <div class="banner-image-overlay"></div>
-  <div class="banner-image-content">
-    <h1 class="banner-image-title">Impact Stories</h1>
-    <h2 class="banner-image-subtitle">--This the blog--</h2>
-  </div>
-</section>
-
+<div class="container-fluid page-header mb-5 p-0"
+    style="background-image: url(<?php echo get_theme_file_uri("img/carousel-3.jpg") ?>);">
+    <div class="container-fluid page-header-inner py-5">
+        <div class="container text-center pb-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">
+                <?php
+                  $Title = explode(":",get_the_archive_title())[1];
+                  echo $Title; 
+                ?>
+            </h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
 <div class="category-bar">
   <a href="<?php echo site_url("/blog")?>">All</a>
   <a href="<?php echo site_url("/news")?>" >News</a>
