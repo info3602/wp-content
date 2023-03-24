@@ -20,11 +20,7 @@
                             How You Can Help <span class="text-primary text-uppercase">Saves Lives</span>
                             </h1>
                             <p class="mb-4">
-                                As a non profit organisation we rely on the support of the community to carry out our 
-                                mission. There are many ways you can help us make a difference. <br /><br />
-                                We welcome anyone who is interested in helping us make a difference. Whether you are 
-                                an individual, a business or an organisation, there are many ways you can get involved
-                                with our non-profit charity organisation for refugees.
+                                test
                                 <br /><br />
                             </p>
                          </div>
