@@ -1,29 +1,43 @@
 <?php get_header() ?>
 
-<!-- Page Header Start -->
+
 <div class="container-fluid page-header mb-5 p-0" 
-    style="background-image: url(<?php echo get_theme_file_uri("img/carousel-4.jpg") ?>);">
+    style="background-image: url(<?php echo get_theme_file_uri("img/carousel-3.jpg") ?>);">
             <div class="container-fluid page-header-inner py-5">
                 <div class="container text-center pb-5">
-                    <h1 class="display-3 text-white mb-3 animated slideInDown">
-                    <?php the_title(); ?>
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">Volunteer Opportunities
                     </h1>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center text-uppercase">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Donate</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">About</li>
-                        </ol>
-                    </nav>
+              
                 </div>
             </div>
         </div>
         <!-- Page Header End -->
 
+
+    <!-- About Start -->
+      <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+        <h1 class="mb-5"><span class="text-primary text-uppercase"><?php the_title(); ?></span></h1>
+        <div class="col-lg-12">
+        <p class="mb-10">
+        <?php
+            while(have_posts()){ 
+                the_post(); 
+                ?>
+                <?php the_content(); ?>
+                
+                <?php
+                }
+                ?>
+        </p>
+      </div>
+              <br></br>
+              <h6 class="section-title text-center text-primary text-uppercase"></h6>
+        </div>
+
         <!-- Steps Start -->
-        <div class="container-xxl py-5">
-        <div class="container">
-            <div class="row g-5 align-items-center">
+    <div class="container-xxl py-5">
+      <div class="container">
+          <div class="row g-5 align-items-center">
             <div class="col-lg-6">
                 
                 <h1 class="mb-4">
@@ -48,30 +62,57 @@
                     <br /><br />
                 </p>
             </div>
-            </div>
-        </div>
-        </div>
-        <!-- Steps End -->
+                <div class="col-lg-6">
+                  <div class="row g-3">
+                    <div class="col-6 text-end">
+                      <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.5s" src=<?php echo get_template_directory_uri() . "/img/carousel-3.jpg" ?>>
+                    </div>
+                    <div class="col-6 text-start">
+                      <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.5s" src=<?php echo get_template_directory_uri() . "/img/carousel-4.jpg" ?>>
+                    </div>
+                    <div class="col-6 text-end">
+                      <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.5s" src=<?php echo get_template_directory_uri() . "/img/carousel-5.jpg" ?>>
+                    </div>
+                    <div class="col-6 text-end">
+                      <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.5s" src=<?php echo get_template_directory_uri() . "/img/carousel-6.jpg" ?>>
+                    </div>
+                  </div>
+                </div>
+                <h1 class="mb-4">
+                <span class="text-primary text-uppercase">Volunteer Testimonials</span>
+                </h1>
+                  <div class="col-lg-6">
+                    <img src=<?php echo get_theme_file_uri("img/testimonial-1.jpg") ?> alt="Avatar" style="width:90px">
+                    <p>
+                      <span>Jane Doe</span><br></br>
+                    </p>
+                    <p>It is very rewarding to be apart of this charity.</p>
+                  </div>
+                  <div class="col-lg-6">
+                    <img src=<?php echo get_theme_file_uri("img/testimonial-2.jpg") ?> alt="Avatar" style="width:90px">
+                    <p>
+                      <span>Chris Fox.</span><br></br> 
+                    </p>
+                    <p>It's amazing to see the impact we have on people's lives</p>
+                  </div>
+                  <div class="col-lg-6">
+                    <img src=<?php echo get_theme_file_uri("img/testimonial-3.jpg") ?> alt="Avatar" style="width:90px">
+                    <p>
+                      <span>Tom Chin.</span><br></br> 
+                    </p>
+                    <p>It makes me so happy so help people who had to flee their countries</p>
+                  </div>
+                  <div class="col-lg-6">
+                    <img src=<?php echo get_theme_file_uri("img/testimonial-4.jpg") ?> alt="Avatar" style="width:90px">
+                    <p>
+                      <span>Jamie Thomas</span><br></br> 
+                    </p>
+                    <p>It broke my heart when I saw the devastation. I had to help in any way and this charity helped me do that</p>
+                  </div>
 
-        <div class="container">
-          <img src=<?php echo get_theme_file_uri("img/testimonial-1.jpg") ?> alt="Avatar" style="width:90px">
-          <p>
-            <span>Jane Doe</span><br></br> CEO at Mighty Schools.
-          </p>
-          <p>It is very rewarding to be apart of this charity.</p>
-        </div>
-
-        <div class="container">
-          <img src=<?php echo get_theme_file_uri("img/testimonial-2.jpg") ?> alt="Avatar" style="width:90px">
-          <p>
-            <span>Chris Fox.</span><br></br> 
-          </p>
-          <p>It's amazing to see the impact we have on people's lives</p>
-        </div>
-
-
-
-        
-       
+          </div>
+      </div>
+    </div>
+        <!-- Steps End -->  
 
 <?php get_footer() ?>
