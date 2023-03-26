@@ -119,6 +119,70 @@
 </div>
 <!-- Donate End -->
 
+
+<div class="spacer">
+
+</div>
+
+
+<!-- Target Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title text-center text-primary text-uppercase">Statistics</h6>
+            <h1 class="mb-5">Your contributions <span class="text-primary text-uppercase">SO Far</span></h1>
+        </div>
+
+        <?php
+        function get_total_donations()
+        {
+            $total = 0;
+            $donations = new WP_Query(
+                array(
+                    'posts_per_page' => -1,
+                    'post_type' => 'donations'
+                )
+            );
+            while ($donations->have_posts()) {
+                $donations->the_post();
+                $total = $total + get_field('donation_amount');
+            }
+            return $total;
+        }
+        ?>
+
+        <div class="row g-4">
+            <div class="col-lg-12 d-flex flex-column align-items-center justify-content-center">
+                <div class="row g-3 pb-2">
+                    <div class="wow fadeIn" data-wow-delay="0.1s">
+                        <div class="border rounded p-1">
+                            <div class="border rounded text-center p-4">
+                                <i class="fa fa-solid fa-hand-holding-usd fa-2x text-primary mb-2"></i>
+                                <h2 id="total" class="mb-1" data-toggle="counter-up">
+                                    <?php echo "$" . get_total_donations() ?>
+                                </h2>
+                                <p class="mb-0">Raised</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wow fadeIn" data-wow-delay="0.3s">
+                        <div class="border rounded p-1">
+                            <div class="border rounded text-center p-4">
+                                <i class="fa fa-solid fa-bullseye fa-2x text-primary mb-2"></i>
+                                <h2 class="mb-1" data-toggle="counter-up">$100,000</h2>
+                                <p class="mb-0">Target</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Target End -->
+
+
+<!-- Form Handling Start -->
 <script type="text/javascript">
     jQuery('#donate-form').submit(ajaxSubmit);
 
@@ -132,15 +196,15 @@
             url: "/wp-admin/admin-ajax.php?action=create_donation",
             data: data,
             success: function (res) {
-                document.querySelector("#donate").textContent = "Thank you for your donation!";
-                console.log(res);
+                alert("Thank you for your donation!");
+                location.reload();
             }
         });
 
         return false;
     }
 </script>
-
+<!-- Form Handling End -->
 
 
 <?php get_footer() ?>

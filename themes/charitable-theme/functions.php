@@ -23,13 +23,6 @@ function enqueue_scripts()
     wp_enqueue_style('functions_1', get_template_directory_uri() . "/js/main.js");
 
     wp_enqueue_script('jquery');
-    wp_localize_script(
-        'frontend-ajax',
-        'frontend_ajax_object',
-        array(
-            'ajaxurl' => admin_url('admin-ajax.php'),
-        )
-    );
 }
 
 //Redirect subscriber accounts out of admin and onto homepage
@@ -65,7 +58,7 @@ function create_donation()
 {
     $donation = [
         'post_status' => "publish",
-        'post_type' => "Donations",
+        'post_type' => "donations",
         'post_title' => $_POST['first_name'] . " " . $_POST['last_name'] . " - $" . $_POST['donation_amount'],
         'meta_input' => [
             'first_name' => $_POST['first_name'],
@@ -78,6 +71,27 @@ function create_donation()
         ]
     ];
     wp_insert_post($donation);
+    wp_send_json_success("success");
+    wp_die();
+}
+
+
+add_action('wp_ajax_nopriv_create_message', 'create_message');
+add_action('wp_ajax_create_message', 'create_message');
+function create_message()
+{
+    $message = [
+        'post_status' => "publish",
+        'post_type' => "messages",
+        'post_title' => $_POST['name'],
+        'meta_input' => [
+            'name' => $_POST['name'],
+            'email' => $_POST['email'],
+            'subject' => $_POST['subject'],
+            'message' => $_POST['message'],
+        ]
+    ];
+    wp_insert_post($message);
     wp_send_json_success("success");
     wp_die();
 }

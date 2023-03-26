@@ -128,6 +128,38 @@ function register_custom_types()
     ];
 
     register_post_type("donations", $args);
+
+
+    /**
+     * Post Type: Message
+     */
+
+    $labels = [
+        "name" => "Messages",
+        "singular_name" => "Message",
+        "menu_name" => "Messages",
+        "all_items" => "All Messages",
+        "add_new_item" => "Add New Message",
+        "edit_item" => "Edit Message",
+        "new_item" => "New Message",
+        "view_item" => "View Message",
+        "view_items" => "View Messages",
+        "item_updated" => "Message Updated"
+
+    ];
+
+    $args = [
+        "label" => "Messages",
+        "labels" => $labels,
+        "description" => "",
+        "public" => true,
+        "has_archive" => true,
+        "supports" => ['title', 'custom-fields'],
+        "rewrite" => ['slug' => 'messages', 'with-front' => true],
+        "menu_icon" => "dashicons-format-status"
+    ];
+
+    register_post_type("messages", $args);
 }
 
 add_action('init', 'register_custom_types');

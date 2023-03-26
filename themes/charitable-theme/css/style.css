@@ -243,6 +243,10 @@
     color: #FFFFFF !important;
 }
 
+.spacer {
+    height: 100px;
+}
+
 
 /*** Youtube Video ***/
 .video {
@@ -440,7 +444,7 @@
 
 .footer {
     position: relative;
-    margin-top: -110px;
+    margin-top: 110px;
     padding-top: 180px;
 }
 
