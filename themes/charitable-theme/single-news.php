@@ -1,15 +1,27 @@
 <?php get_header() ?>
 
 <!-- Page Header Start -->
-<div class="container-fluid page-header mb-5 p-0" style="background-image: url(img/carousel-1.jpg);">
-            <div class="container-fluid page-header-inner py-5">
-                <div class="container text-center pb-5">
-                    <h1 class="display-3 text-white mb-3 animated slideInDown">News</h1>
-                    
-                </div>
-            </div>
+<div class="container-fluid page-header mb-5 p-0"
+    style="background-image: url(<?php echo get_theme_file_uri("img/carousel-3.jpg") ?>);">
+    <div class="container-fluid page-header-inner py-5">
+        <div class="container text-center pb-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">
+              <?php
+                  echo the_title(); 
+                ?>
+            </h1>
+
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase">
+                    <li class="breadcrumb-item"><a href="<?php site_url("/news")?>">News</a></li>
+                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                </ol>
+            </nav>
         </div>
-        <!-- Page Header End -->
+    </div>
+</div>
 
         <!-- Video Start -->
         <div class="container-xxl py-5 px-0 wow zoomIn" data-wow-delay="0.1s">
