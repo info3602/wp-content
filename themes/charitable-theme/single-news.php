@@ -24,13 +24,22 @@
 </div>
     <div class="container-xxl py-5 px-0 wow zoomIn" data-wow-delay="0.1s">
         <div class="row g-0">
-            <div class="col-md-12 bg-dark d-flex align-items-center">
+            <div class="col-md-6 bg-dark d-flex align-items-center">
                 <div class="p-5">
                 <h6 class="section-title text-start text-white text-uppercase mb-3">News</h6>
                 <h1 class="text-white mb-4"><?php echo the_title()?></h1>
-                <p class="text-white mb-4"><?php echo the_content(), get_field('article_1');?></p>
+                <p class="text-white mb-4"><?php echo the_content();?></p>
             </div>
         </div>
+        <div class="col-md-6 d-flex align-items-center" style="background-image: url(<?php echo get_field("video_image"); ?>)">
+        </div>
+        <div class="row g-0">
+            <div class="col-md-12 bg-dark d-flex align-items-center">
+                <div class="p-5">
+                <p class="text-white mb-4"><?php echo get_field('article_1');?></p>
+            </div>
+        </div>
+        
     </div>
 </div>
 
@@ -65,18 +74,6 @@
 </div>
 
 
-</div>
-    <div class="container-xxl py-5 px-0 wow zoomIn" data-wow-delay="0.1s">
-        <div class="row g-0">
-            <div class="col-md-12 bg-dark d-flex align-items-center">
-                <div class="p-5">
-                <h6 class="section-title text-start text-white text-uppercase mb-3">News</h6>
-                <h1 class="text-white mb-4"><?php echo the_title()?></h1>
-                <p class="text-white mb-4"><?php echo get_field('article_1');?></p>
-            </div>
-        </div>
-    </div>
-</div>
 
 <div class="container-xxl py-5">
     <div class="container">
@@ -107,10 +104,10 @@
                     <?php echo get_the_date(); ?>
                     </p>
                     <h5 class="mb-3">
-                    <?php echo wp_trim_words(get_the_title(), 6); ?>
+                    <?php echo wp_trim_words(get_the_title($opportunity), 6); ?>
                     </h5>
                     <p class="text-body mb-0">
-                    <?php echo wp_trim_words(get_the_content(), 10); ?>
+                    <?php echo wp_trim_words(get_the_content($opportunity), 10); ?>
                     </p>
 
 
