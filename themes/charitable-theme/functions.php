@@ -21,6 +21,15 @@ function enqueue_scripts()
     wp_enqueue_style('functions_7', get_template_directory_uri() . "/lib/tempusdominus/js/moment-timezone.min.js");
     wp_enqueue_style('functions_8', get_template_directory_uri() . "/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js");
     wp_enqueue_style('functions_1', get_template_directory_uri() . "/js/main.js");
+
+    wp_enqueue_script('jquery');
+    wp_localize_script(
+        'frontend-ajax',
+        'frontend_ajax_object',
+        array(
+            'ajaxurl' => admin_url('admin-ajax.php'),
+        )
+    );
 }
 
 //Redirect subscriber accounts out of admin and onto homepage
@@ -49,4 +58,28 @@ function noSubsAdminBar()
         }
     }
 }
+
+add_action('wp_ajax_nopriv_create_donation', 'create_donation');
+add_action('wp_ajax_create_donation', 'create_donation');
+function create_donation()
+{
+    $donation = [
+        'post_status' => "publish",
+        'post_type' => "Donations",
+        'post_title' => $_POST['first_name'] . " " . $_POST['last_name'] . " - $" . $_POST['donation_amount'],
+        'meta_input' => [
+            'first_name' => $_POST['first_name'],
+            'last_name' => $_POST['last_name'],
+            'email' => $_POST['email'],
+            'contact' => $_POST['contact'],
+            'donation_amount' => $_POST['donation_amount'],
+            'target_area' => $_POST['target_area'],
+            'source' => $_POST['source'],
+        ]
+    ];
+    wp_insert_post($donation);
+    wp_send_json_success("success");
+    wp_die();
+}
+
 ?>
