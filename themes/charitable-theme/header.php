@@ -68,23 +68,34 @@
                         </button>
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
-                                <!-- <?php
+                                <?php
                                 // wp_nav_menu(
                                 //     array(
-                                //         'theme_location' => 'header'
+                                //         'theme_location' => 'header',
+                                //         'menu_class' => "navbar-nav mr-auto py-0",
                                 //     )
                                 // );
-                                ?> -->
-                                <a href=<?php echo site_url(); ?> class="nav-item nav-link active">Home</a>
-                                <a href=<?php echo site_url("/donate"); ?> class="nav-item nav-link">Donate</a>
-                                <a href=<?php echo site_url("/blog"); ?> class="nav-item nav-link">Blog</a>
+                                ?>
+                                <a href=<?php echo site_url(); ?>
+                                    class="nav-item nav-link <?php echo (is_front_page()) ? "active" : "" ?>">Home
+                                </a>
+                                <a href=<?php echo site_url("/donate"); ?>
+                                    class="nav-item nav-link <?php echo (is_page("donate")) ? "active" : "" ?>">Donate</a>
+                                <a href=<?php echo site_url("/blog"); ?>
+                                    class="nav-item nav-link <?php echo (is_home() || is_archive() || is_single()) ? "active" : "" ?>">Blog</a>
                                 <div class="nav-item dropdown">
-                                    <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">About Us</a>
+                                    <a href=""
+                                        class="nav-link dropdown-toggle <?php echo (is_page("our-team") || is_page("our-values") || is_page("our-mission")) ? "active" : "" ?>"
+                                        data-bs-toggle="dropdown">About Us</a>
                                     <div class="dropdown-menu rounded-0 m-0">
-                                        <a href=<?php echo site_url("/our-mission"); ?> class="dropdown-item">Our
+                                        <a href=<?php echo site_url("/our-mission"); ?>
+                                            class="dropdown-item <?php echo (is_page("our-mission")) ? "active" : "" ?>">Our
                                             Mission</a>
-                                        <a href=<?php echo site_url("/our-team"); ?> class="dropdown-item">Our Team</a>
-                                        <a href=<?php echo site_url("/our-values"); ?> class="dropdown-item">Our
+                                        <a href=<?php echo site_url("/our-team"); ?>
+                                            class="dropdown-item <?php echo (is_page("our-team")) ? "active" : "" ?>">Our
+                                            Team</a>
+                                        <a href=<?php echo site_url("/our-values"); ?>
+                                            class="dropdown-item <?php echo (is_page("our-values")) ? "active" : "" ?>">Our
                                             Values</a>
                                     </div>
                                 </div>

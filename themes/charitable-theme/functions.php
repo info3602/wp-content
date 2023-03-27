@@ -1,6 +1,7 @@
 <?php
 
 register_nav_menu('header', 'Header');
+register_nav_menu('footer', 'Footer');
 
 add_action('wp_enqueue_scripts', 'enqueue_scripts');
 function enqueue_scripts()
@@ -42,7 +43,6 @@ add_action('wp_loaded', 'noSubsAdminBar');
 function noSubsAdminBar()
 {
     $ourCurrentUser = wp_get_current_user();
-    // var_dump($ourCurrentUser);
     if ($ourCurrentUser->roles) {
         $userNumRoles = count($ourCurrentUser->roles);
         $userRole = $ourCurrentUser->roles[0];
