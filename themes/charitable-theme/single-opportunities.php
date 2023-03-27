@@ -54,7 +54,7 @@
                                 <div class="service-icon bg-transparent border rounded p-1">
                                     <div
                                         class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                                        <i class="fa fa-solid fa-at fa-2x text-primary"></i>
+                                        <i class="fa fa-solid fa-1 fa-2x text-primary"></i>
                                     </div>
                                 </div>
                                 <h5 class="mb-3">Get in Touch</h5>
@@ -69,7 +69,7 @@
                                 <div class="service-icon bg-transparent border rounded p-1">
                                     <div
                                         class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                                        <i class="fa fa-search fa-2x text-primary"></i>
+                                        <i class="fa fa-2 fa-2x text-primary"></i>
 
                                     </div>
                                 </div>
@@ -85,11 +85,11 @@
                                 <div class="service-icon bg-transparent border rounded p-1">
                                     <div
                                         class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                                        <i class="fa fa-people-carry fa-2x text-primary"></i>
+                                        <i class="fa fa-3 fa-2x text-primary"></i>
 
                                     </div>
                                 </div>
-                                <h5 class="mb-3">Get Volunteering</h5>
+                                <h5 class="mb-3">Get Volunteering!</h5>
                                 <p class="text-body mb-0">It could be a technology project, working with our
                                     Communications team or helping out on a fundraising event.
                                 </p>
