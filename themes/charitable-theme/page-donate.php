@@ -10,10 +10,20 @@
             </h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center text-uppercase">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                    <?php
+                        global $wp_query;
+                        $post = $wp_query->post;
+                        $ancestors = get_post_ancestors($post);
+                        foreach($ancestors as $value){
+                           
+                        ?>  
+                            <li class="breadcrumb-item"><a href="<?php echo get_the_permalink($value);?>"><?php echo get_the_title($value);?></a></li>
+
+                    <?php
+                        }?>
+                            <li class="breadcrumb-item text-white active" aria-current="page"><?php the_title()?></li>
                 </ol>
+
             </nav>
         </div>
     </div>
