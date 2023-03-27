@@ -28,12 +28,15 @@
                 <div class="row gy-5 g-4">
                     <div class="col-md-12">
                         <h6 class="section-title text-start text-primary text-uppercase mb-4">Quick Links</h6>
-                        <a class="btn btn-link" href=<?php echo site_url() ?>>Home</a>
-                        <a class="btn btn-link" href=<?php echo site_url("/donate") ?>>Donate</a>
-                        <a class="btn btn-link" href=<?php echo site_url("blog") ?>>Blog</a>
-                        <a class="btn btn-link" href=<?php echo site_url("/our-mission") ?>>Our Mission</a>
-                        <a class="btn btn-link" href=<?php echo site_url("/our-team") ?>>Our Team</a>
-                        <a class="btn btn-link" href=<?php echo site_url("/our-values") ?>>Our Values</a>
+                        <?php
+                        wp_nav_menu(
+                            array(
+                                'theme_location' => 'footer',
+                                'menu_class' => "navbar-nav mr-auto py-0",
+                                'before' => '<i class="fas fa-caret-right"></i> ',
+                            )
+                        );
+                        ?>
                     </div>
 
                 </div>
