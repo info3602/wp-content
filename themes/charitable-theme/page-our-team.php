@@ -15,7 +15,7 @@
                         $post = $wp_query->post;
                         $ancestors = get_post_ancestors($post);
                         foreach($ancestors as $value){
-                           
+                            $ancestors = array_reverse($ancestors);
                         ?>  
                             <li class="breadcrumb-item"><a href="<?php echo get_the_permalink($value);?>"><?php echo get_the_title($value);?></a></li>
 
