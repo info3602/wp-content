@@ -1,6 +1,7 @@
 <?php
 
 register_nav_menu('header', 'Header');
+register_nav_menu('footer', 'Footer');
 
 add_action('wp_enqueue_scripts', 'enqueue_scripts');
 function enqueue_scripts()
@@ -21,6 +22,8 @@ function enqueue_scripts()
     wp_enqueue_style('functions_7', get_template_directory_uri() . "/lib/tempusdominus/js/moment-timezone.min.js");
     wp_enqueue_style('functions_8', get_template_directory_uri() . "/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js");
     wp_enqueue_style('functions_1', get_template_directory_uri() . "/js/main.js");
+
+    wp_enqueue_script('jquery');
 }
 
 //Redirect subscriber accounts out of admin and onto homepage
@@ -40,7 +43,6 @@ add_action('wp_loaded', 'noSubsAdminBar');
 function noSubsAdminBar()
 {
     $ourCurrentUser = wp_get_current_user();
-    // var_dump($ourCurrentUser);
     if ($ourCurrentUser->roles) {
         $userNumRoles = count($ourCurrentUser->roles);
         $userRole = $ourCurrentUser->roles[0];
@@ -49,4 +51,49 @@ function noSubsAdminBar()
         }
     }
 }
+
+add_action('wp_ajax_nopriv_create_donation', 'create_donation');
+add_action('wp_ajax_create_donation', 'create_donation');
+function create_donation()
+{
+    $donation = [
+        'post_status' => "publish",
+        'post_type' => "donations",
+        'post_title' => $_POST['first_name'] . " " . $_POST['last_name'] . " - $" . $_POST['donation_amount'],
+        'meta_input' => [
+            'first_name' => $_POST['first_name'],
+            'last_name' => $_POST['last_name'],
+            'email' => $_POST['email'],
+            'contact' => $_POST['contact'],
+            'donation_amount' => $_POST['donation_amount'],
+            'target_area' => $_POST['target_area'],
+            'source' => $_POST['source'],
+        ]
+    ];
+    wp_insert_post($donation);
+    wp_send_json_success("success");
+    wp_die();
+}
+
+
+add_action('wp_ajax_nopriv_create_message', 'create_message');
+add_action('wp_ajax_create_message', 'create_message');
+function create_message()
+{
+    $message = [
+        'post_status' => "publish",
+        'post_type' => "messages",
+        'post_title' => $_POST['name'],
+        'meta_input' => [
+            'name' => $_POST['name'],
+            'email' => $_POST['email'],
+            'subject' => $_POST['subject'],
+            'message' => $_POST['message'],
+        ]
+    ];
+    wp_insert_post($message);
+    wp_send_json_success("success");
+    wp_die();
+}
+
 ?>

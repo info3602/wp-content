@@ -47,25 +47,20 @@
         ?>
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
           <a class="service-item rounded" href=<?php the_permalink(); ?>>
-            <h5 class="mb-3">
-              <?php echo strtoupper(get_post_type()); ?>
-            </h5>
             <div>
-              <div>
-                <img class="w-75" src=<?php echo get_template_directory_uri() . "/img/carousel-4.jpg" ?> alt="Image">
+              <div class="card-img-div">
+                <img class="card-img" src=<?php echo get_template_directory_uri() . "/img/carousel-4.jpg" ?> alt="Image">
               </div>
             </div>
-            <p class="text-body mb-0">
-              <?php echo the_date(); ?>
+            <p class="text-body card-date mb-0">
+              <?php echo the_time("M j, Y") . " | " . strtoupper(get_post_type()); ?>
             </p>
-            <h5 class="mb-3">
-              <?php echo wp_trim_words(get_the_title(), 6); ?>
+            <h5 class="mb-3" style="color:var(--primary);">
+              <?php echo trim(substr(get_the_title(), 0, 35)), (strlen(get_the_title()) > 35) ? " ..." : ""; ?>
             </h5>
             <p class="text-body mb-0">
-              <?php echo wp_trim_words(get_the_content(), 10); ?>
+              <?php echo trim(substr(get_the_content(), 0, 60)), (strlen(get_the_content()) > 35) ? " ..." : ""; ?>
             </p>
-
-
           </a>
         </div>
         <?php
