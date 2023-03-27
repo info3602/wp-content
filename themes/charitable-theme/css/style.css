@@ -203,6 +203,10 @@ li.current_page_item a {
     transition: .5s;
 }
 
+.step {
+    height: 350px;
+}
+
 .service-item:hover {
     background: var(--primary);
 }
@@ -664,5 +668,27 @@ li.current_page_item a {
     color: var(--primary);
   }
   
+  .post-article-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
   
+  .post-article {
+    width: 90%;
+    max-width: 850px;
+  }
+
+  .post-img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .spacer-50 {
+    height: 50px;
+  }
+
+  .spacer-10 {
+    height: 10px;
+  }
   

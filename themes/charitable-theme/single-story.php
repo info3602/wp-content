@@ -25,7 +25,7 @@
     <div class="container">
         <div class="post-article-div row g-5 align-items-center">
             <div class="post-article col-lg-12">
-                <i class="fa fas fa-globe fa-2x"> </i>
+                <i class="fa fas fa-history fa-2x"> </i>
                 <h6 class="section-title text-start text-primary text-uppercase">
                     <a href=<?php echo get_post_type_archive_link(get_post_type()); ?>><?php echo get_post_type() ?></a>
                 </h6>
@@ -33,18 +33,13 @@
                     <?php echo the_time('M j, Y') . "  " ?> &bull;
                     <?php echo "  " . get_field('reading_time') . " read" ?>
                 </h6>
-                <h6 class="mb-4">
-                    <?php echo get_field('source') ?>
-                </h6>
                 <div class="spacer-10"></div>
                 <p class="mb-4">
                     <?php echo the_content(); ?>
                 </p>
             </div>
             <div class="post-article col-lg-12">
-                <iframe class="post-img" height="315" src=<?php echo "https://www.youtube.com/embed/" . get_field('video') ?> title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
+                <img class="post-img" src=<?php echo get_field('image')['url'] ?>>
             </div>
             <div class="post-article col-lg-12">
                 <p class="mb-4">
@@ -60,14 +55,15 @@
             <div class="spacer-50"></div>
             <div class="row g-4">
                 <?php
-                $related = get_field('related_opportunity');
+                $related = get_field('related_opportunities');
                 foreach ($related as $item) {
                     ?>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <a class="service-item rounded" href=<?php the_permalink($item); ?>>
                             <div>
                                 <div class="card-img-div">
-                                    <img class="card-img" src=<?php echo get_template_directory_uri() . "/img/carousel-4.jpg" ?> alt="Image">
+                                    <img class="card-img" src=<?php echo get_template_directory_uri() . "/img/carousel-4.jpg" ?>
+                                        alt="Image">
                                 </div>
                             </div>
                             <p class="text-body card-date mb-0">
@@ -81,7 +77,7 @@
                             </p>
                         </a>
                     </div>
-                    <?php
+                <?php
                 }
                 ?>
             </div>
@@ -90,4 +86,6 @@
 </div>
 <!-- Article End -->
 
-<?php get_footer() ?>
+<?php 
+get_footer() 
+?>
