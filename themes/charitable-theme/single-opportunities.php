@@ -102,8 +102,11 @@
         </div>
         <div class="spacer"></div>
         <div class="post-article col-lg-12">
-            <h4 class="text-start text-primary text-uppercase">
-                Related news
+            <h6 class="section-title text-start text-primary text-uppercase">
+                Related
+            </h6>
+            <h4 class="text-start text-uppercase">
+                News
             </h4>
             <div class="spacer-50"></div>
             <div class="row g-4">

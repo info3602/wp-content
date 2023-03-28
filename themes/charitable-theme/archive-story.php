@@ -56,14 +56,12 @@
             </p>
           </a>
         </div>
-        </a>
-      </div>
-      <?php
+        <?php
       }
 
       ?>
+    </div>
   </div>
-</div>
 </div>
 <?php
 echo paginate_links();

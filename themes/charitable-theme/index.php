@@ -42,7 +42,7 @@ $posts_query = new WP_Query($args);
       <?php
       while ($posts_query->have_posts()) {
         $posts_query->the_post();
-        if ((get_post_type() != "post") and (get_post_type() != "page")) {
+        if ((get_post_type() != "post") and (get_post_type() != "page") and (get_post_type() != "donations") and (get_post_type() != "messages")) {
           ?>
           <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
             <a class="service-item rounded" href=<?php the_permalink(); ?>>

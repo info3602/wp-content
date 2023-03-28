@@ -669,6 +669,7 @@ li.current_page_item a {
   }
   
   .post-article-div {
+    
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -682,6 +683,7 @@ li.current_page_item a {
   .post-img {
     width: 100%;
     object-fit: cover;
+    max-width: 90vw;
   }
 
   .spacer-50 {
