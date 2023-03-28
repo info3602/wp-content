@@ -30,12 +30,10 @@
 
 <div class="container-xxl py-5">
   <div class="container">
-
     <div class="row g-4">
-    <?php
+      <?php
       while (have_posts()) {
         the_post(); 
-        
         ?>
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
           <a class="service-item rounded" href=<?php the_permalink(); ?>>
@@ -55,18 +53,15 @@
             </p>
           </a>
         </div>
-            </p>
-
-
-          </a>
-        </div>
         <?php
-        }
-      
+        
+      }
       ?>
     </div>
   </div>
 </div>
+
+
 <?php 
   echo paginate_links();
   get_footer();

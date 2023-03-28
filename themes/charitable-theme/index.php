@@ -6,19 +6,19 @@
     <div class="container-fluid page-header-inner py-5">
         <div class="container text-center pb-5">
             <h1 class="display-3 text-white mb-3 animated slideInDown">
-            All
+            All Posts
             </h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center text-uppercase">
                     <li class="breadcrumb-item"><a href="<?php echo site_url();?>">Home</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">All</li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">All Posts</li>
                 </ol>
             </nav>
         </div>
     </div>
 </div>
 <div class="category-bar">
-  <a href="<?php echo site_url("/blog")?>" class="active" >All</a>
+  <a href="<?php echo site_url("/blog")?>" class="active" >All Posts</a>
   <a href="<?php echo site_url("/news")?>">News</a>
   <a href="<?php echo site_url("/opportunities")?>">Volunteer Opportunities</a>
   <a href="<?php echo site_url("/story")?>" >Impact Stories</a>
@@ -43,7 +43,7 @@
       <?php
       while ($posts_query->have_posts()) {
         $posts_query->the_post(); 
-        if((get_post_type() != "post") and (get_post_type() != "page")){
+        if((get_post_type() != "post") and (get_post_type() != "page") and (get_post_type() != "donations") and (get_post_type() != "messages")){
         ?>
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
           <a class="service-item rounded" href=<?php the_permalink(); ?>>
