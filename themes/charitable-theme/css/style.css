@@ -691,4 +691,10 @@ li.current_page_item a {
   .spacer-10 {
     height: 10px;
   }
+
+  .cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
   

@@ -62,7 +62,8 @@
                         <a class="service-item rounded" href=<?php the_permalink($item); ?>>
                             <div>
                                 <div class="card-img-div">
-                                    <img class="card-img" src=<?php echo get_template_directory_uri() . "/img/carousel-4.jpg" ?> alt="Image">
+                                    <img class="card-img" src=<?php echo get_the_post_thumbnail_url($item, 'card') ?>
+                                        alt="Image">
                                 </div>
                             </div>
                             <p class="text-body card-date mb-0">
@@ -72,7 +73,7 @@
                                 <?php echo trim(substr(get_the_title($item), 0, 35)), (strlen(get_the_title($item)) > 35) ? " ..." : ""; ?>
                             </h5>
                             <p class="text-body mb-0">
-                                <?php echo trim(substr(get_the_content($item), 0, 60)), (strlen(get_the_content($item)) > 35) ? " ..." : ""; ?>
+                                <?php echo trim(substr(get_the_content(null, false, $item), 0, 60)), (strlen(get_the_content(null, false, $item)) > 35) ? " ..." : ""; ?>
                             </p>
                         </a>
                     </div>

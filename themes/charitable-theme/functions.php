@@ -1,5 +1,7 @@
 <?php
-
+add_theme_support('title-tag');
+add_theme_support('post-thumbnails');
+add_image_size('card', 400, 300, true);
 register_nav_menu('header', 'Header');
 register_nav_menu('footer', 'Footer');
 
