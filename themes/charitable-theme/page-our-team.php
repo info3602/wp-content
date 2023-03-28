@@ -10,9 +10,22 @@
             </h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center text-uppercase">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                <?php
+                        global $wp_query;
+                        $post = $wp_query->post;
+                        $ancestors = get_post_ancestors($post);
+                        if(count($ancestors)!= 0){
+                            $ancestors = array_reverse($ancestors);
+                            foreach($ancestors as $value){
+                           
+                        ?>  
+                                <li class="breadcrumb-item"><a href="<?php echo get_the_permalink($value);?>"><?php echo get_the_title($value);?></a></li>
+
+                    <?php
+                            }
+                        }?>
+                                <li class="breadcrumb-item text-white active" aria-current="page"><?php the_title()?></li>
+                
                 </ol>
             </nav>
         </div>
@@ -108,16 +121,16 @@
             <div class="col-12">
                 <div class="row gy-4">
                     <div class="col-md-4">
-                        <h6 class="section-title text-start text-primary text-uppercase">Booking</h6>
-                        <p><i class="fa fa-envelope-open text-primary me-2"></i>book@charitable.accesstt.com</p>
+                        <h6 class="section-title text-start text-primary text-uppercase">Donation</h6>
+                        <p><i class="fa fa-envelope-open text-primary me-2"></i>donation@charitable.accesstt.com</p>
                     </div>
                     <div class="col-md-4">
                         <h6 class="section-title text-start text-primary text-uppercase">General</h6>
                         <p><i class="fa fa-envelope-open text-primary me-2"></i>info@charitable.accesstt.com</p>
                     </div>
                     <div class="col-md-4">
-                        <h6 class="section-title text-start text-primary text-uppercase">Technical</h6>
-                        <p><i class="fa fa-envelope-open text-primary me-2"></i>tech@charitable.accesstt.com</p>
+                        <h6 class="section-title text-start text-primary text-uppercase">Volunteering</h6>
+                        <p><i class="fa fa-envelope-open text-primary me-2"></i>volunteering@charitable.accesstt.com</p>
                     </div>
                 </div>
             </div>

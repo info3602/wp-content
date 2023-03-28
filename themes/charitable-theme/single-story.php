@@ -25,7 +25,7 @@
     <div class="container">
         <div class="post-article-div row g-5 align-items-center">
             <div class="post-article col-lg-12">
-                <i class="fa fas fa-globe fa-2x"> </i>
+                <i class="fa fas fa-history fa-2x"> </i>
                 <h6 class="section-title text-start text-primary text-uppercase">
                     <a href=<?php echo get_post_type_archive_link(get_post_type()); ?>><?php echo get_post_type() ?></a>
                 </h6>
@@ -33,18 +33,13 @@
                     <?php echo the_time('M j, Y') . "  " ?> &bull;
                     <?php echo "  " . get_field('reading_time') . " min read" ?>
                 </h6>
-                <h6 class="mb-4">
-                    <?php echo get_field('source') ?>
-                </h6>
                 <div class="spacer-10"></div>
                 <p class="mb-4">
                     <?php echo the_content(); ?>
                 </p>
             </div>
             <div class="post-article col-lg-12">
-                <iframe class="post-img" height="315" src=<?php echo "https://www.youtube.com/embed/" . get_field('video') ?> title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
+                <img class="post-img" src=<?php echo get_field('image')['url'] ?>>
             </div>
             <div class="post-article col-lg-12">
                 <p class="mb-4">
@@ -58,12 +53,12 @@
                 Related
             </h6>
             <h4 class="text-start text-uppercase">
-                Impact Stories
+                Volunteering Opportunities
             </h4>
             <div class="spacer-50"></div>
             <div class="row g-4">
                 <?php
-                $related = get_field('related_stories');
+                $related = get_field('related_opportunities');
                 foreach ($related as $item) {
                     ?>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -94,4 +89,6 @@
 </div>
 <!-- Article End -->
 
-<?php get_footer() ?>
+<?php
+get_footer()
+    ?>

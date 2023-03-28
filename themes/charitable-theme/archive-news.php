@@ -12,11 +12,10 @@
                 ?>
             </h1>
             <nav aria-label="breadcrumb">
-                <ol class="breadcrumb justify-content-center text-uppercase">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">About</li>
-                </ol>
+              <ol class="breadcrumb justify-content-center text-uppercase">
+                    <li class="breadcrumb-item"><a href="<?php echo site_url();?>">Home</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page"><?php echo $Title?></li>
+              </ol>
             </nav>
         </div>
     </div>
@@ -42,7 +41,7 @@
           <a class="service-item rounded" href=<?php the_permalink(); ?>>
             <div>
               <div class="card-img-div">
-                <img class="card-img" src=<?php echo get_template_directory_uri() . "/img/carousel-4.jpg" ?> alt="Image">
+                <img class="card-img" src=<?php echo the_post_thumbnail_url('card') ?> alt="Image">
               </div>
             </div>
             <p class="text-body card-date mb-0">
@@ -56,11 +55,7 @@
             </p>
           </a>
         </div>
-            </p>
 
-
-          </a>
-        </div>
         <?php
         }
       
