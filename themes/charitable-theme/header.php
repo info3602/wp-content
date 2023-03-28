@@ -76,6 +76,7 @@
                                 //     )
                                 // );
                                 ?>
+                                <span class="search-trigger js-search-trigger"><i class="fa fa-search" aria-hidden="true"></i></span>
                                 <a href=<?php echo site_url(); ?>
                                     class="nav-item nav-link <?php echo (is_front_page()) ? "active" : "" ?>">Home
                                 </a>
@@ -99,6 +100,7 @@
                                             Values</a>
                                     </div>
                                 </div>
+                                
                                 <?php
                                 if (is_user_logged_in()) { ?>
                                     <a href=<?php echo wp_logout_url(); ?> class="nav-item nav-link">Logout</a>
