@@ -31,7 +31,7 @@
                 </h6>
                 <h6 class="">
                     <?php echo the_time('M j, Y') . "  " ?> &bull;
-                    <?php echo "  " . get_field('reading_time') . " read" ?>
+                    <?php echo "  " . get_field('reading_time') . " min read" ?>
                 </h6>
                 <h6 class="mb-4">
                     <?php echo get_field('source') ?>
