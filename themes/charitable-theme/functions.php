@@ -21,8 +21,8 @@ function enqueue_scripts()
     wp_enqueue_style('functions_6', get_template_directory_uri() . "/lib/tempusdominus/js/moment.min.js");
     wp_enqueue_style('functions_7', get_template_directory_uri() . "/lib/tempusdominus/js/moment-timezone.min.js");
     wp_enqueue_style('functions_8', get_template_directory_uri() . "/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js");
-    wp_enqueue_style('functions_1', get_template_directory_uri() . "/js/main.js");
-    wp_enqueue_style('functions_11', get_template_directory_uri() . "/js/search.js");
+    wp_enqueue_style('functions_9', get_template_directory_uri() . "/js/main.js");
+    wp_enqueue_style('functions_10', get_template_directory_uri() . "/js/search.js");
     wp_enqueue_script('jquery');
 }
 
