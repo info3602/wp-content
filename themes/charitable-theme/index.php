@@ -5,7 +5,7 @@
   <div class="container-fluid page-header-inner py-5">
     <div class="container text-center pb-5">
       <h1 class="display-3 text-white mb-3 animated slideInDown">
-        All
+        All Posts
       </h1>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb justify-content-center text-uppercase">
@@ -17,10 +17,12 @@
   </div>
 </div>
 <div class="category-bar">
-  <a href="<?php echo site_url("/blog") ?>" class="active">All</a>
-  <a href="<?php echo site_url("/news") ?>">News</a>
-  <a href="<?php echo site_url("/opportunities") ?>">Volunteer Opportunities</a>
-  <a href="<?php echo site_url("/story") ?>">Impact Stories</a>
+  <div class="category-item-container">
+    <a href=<?php echo site_url("/blog") ?> class="active">All</a>
+    <a href=<?php echo site_url("/news") ?>>News</a>
+    <a href=<?php echo site_url("/opportunities") ?>>Opportunities</a>
+    <a href=<?php echo site_url("/story") ?>>Stories</a>
+  </div>
 </div>
 <?php
 

@@ -23,12 +23,12 @@
 </div>
 
 <div class="category-bar">
-  <div class="category-bar">
-    <a href="<?php echo site_url("/blog") ?>">All</a>
-    <a href="<?php echo site_url("/news") ?>">News</a>
-    <a href="<?php echo site_url("/opportunities") ?>" class="active">Volunteer Opportunities</a>
-    <a href="<?php echo site_url("/story") ?>">Impact Stories</a>
-  </div>
+  <ul class="category-item-container">
+    <a href=<?php echo site_url("/blog") ?>>All</a>
+    <a href=<?php echo site_url("/news") ?>>News</a>
+    <a href=<?php echo site_url("/opportunities") ?> class="active">Opportunities</a>
+    <a href=<?php echo site_url("/story") ?>>Stories</a>
+  </ul>
 </div>
 
 
