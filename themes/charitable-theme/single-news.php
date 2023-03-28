@@ -48,7 +48,7 @@
             </div>
             <div class="post-article col-lg-12">
                 <p class="mb-4">
-                    <?php echo get_field('article_1'); ?>
+                    <?php echo get_field('extra'); ?>
                 </p>
             </div>
         </div>

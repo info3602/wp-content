@@ -43,7 +43,7 @@
             </div>
             <div class="post-article col-lg-12">
                 <p class="mb-4">
-                    <?php echo get_field('article_1'); ?>
+                    <?php echo get_field('extra'); ?>
                 </p>
             </div>
         </div>
@@ -62,8 +62,7 @@
                         <a class="service-item rounded" href=<?php the_permalink($item); ?>>
                             <div>
                                 <div class="card-img-div">
-                                    <img class="card-img" src=<?php echo get_template_directory_uri() . "/img/carousel-4.jpg" ?>
-                                        alt="Image">
+                                    <img class="card-img" src=<?php echo get_template_directory_uri() . "/img/carousel-4.jpg" ?> alt="Image">
                                 </div>
                             </div>
                             <p class="text-body card-date mb-0">
@@ -77,7 +76,7 @@
                             </p>
                         </a>
                     </div>
-                <?php
+                    <?php
                 }
                 ?>
             </div>
@@ -86,6 +85,6 @@
 </div>
 <!-- Article End -->
 
-<?php 
-get_footer() 
-?>
+<?php
+get_footer()
+    ?>
