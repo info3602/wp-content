@@ -20,6 +20,9 @@
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <?php wp_head(); ?>
@@ -68,24 +71,35 @@
                         </button>
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
-                                <!-- <?php
+                                <?php
                                 // wp_nav_menu(
                                 //     array(
-                                //         'theme_location' => 'header'
+                                //         'theme_location' => 'header',
+                                //         'menu_class' => "navbar-nav mr-auto py-0",
                                 //     )
                                 // );
-                                ?> -->
-                                <a href=<?php echo site_url(); ?> class="nav-item nav-link active">Home</a>
-                                <a href=<?php echo site_url("/donate"); ?> class="nav-item nav-link">Donate</a>
-                                <a href=<?php echo site_url("/blog"); ?> class="nav-item nav-link">Blog</a>
+                                ?>
+                                <a href=<?php echo site_url(); ?>
+                                    class="nav-item nav-link <?php echo (is_front_page()) ? "active" : "" ?>">Home
+                                </a>
+                                <a href=<?php echo site_url("/donate"); ?>
+                                    class="nav-item nav-link <?php echo (is_page("donate")) ? "active" : "" ?>">Donate</a>
+                                <a href=<?php echo site_url("/blog"); ?>
+                                    class="nav-item nav-link <?php echo (is_home() || is_archive() || is_single()) ? "active" : "" ?>">Blog</a>
                                 <div class="nav-item dropdown">
-                                    <a href=<?php echo site_url("/about-us"); ?> class="nav-link dropdown-toggle"
+                                    <a href=""
+                                        class="nav-link dropdown-toggle <?php echo (is_page("our-team") || is_page("our-values") || is_page("our-mission")) ? "active" : "" ?>"
                                         data-bs-toggle="dropdown">About Us</a>
                                     <div class="dropdown-menu rounded-0 m-0">
-                                        <a href=<?php echo site_url("/our-goals"); ?> class="dropdown-item">Our
-                                            Goals</a>
-                                        <a href=<?php echo site_url("/our-strategy"); ?> class="dropdown-item">Our
-                                            Strategy</a>
+                                        <a href=<?php echo site_url("/our-mission"); ?>
+                                            class="dropdown-item <?php echo (is_page("our-mission")) ? "active" : "" ?>">Our
+                                            Mission</a>
+                                        <a href=<?php echo site_url("/our-team"); ?>
+                                            class="dropdown-item <?php echo (is_page("our-team")) ? "active" : "" ?>">Our
+                                            Team</a>
+                                        <a href=<?php echo site_url("/our-values"); ?>
+                                            class="dropdown-item <?php echo (is_page("our-values")) ? "active" : "" ?>">Our
+                                            Values</a>
                                     </div>
                                 </div>
                                 <?php

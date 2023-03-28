@@ -1,118 +1,151 @@
 <?php get_header() ?>
 
-
-<div class="container-fluid page-header mb-5 p-0" 
-    style="background-image: url(<?php echo get_theme_file_uri("img/carousel-3.jpg") ?>);">
-            <div class="container-fluid page-header-inner py-5">
-                <div class="container text-center pb-5">
-                    <h1 class="display-3 text-white mb-3 animated slideInDown">Volunteer Opportunities
-                    </h1>
-              
-                </div>
-            </div>
+<!-- Page Header Start -->
+<div class="container-fluid page-header mb-5 p-0"
+    style="background-image: url(<?php echo get_theme_file_uri("img/volunteer-1.jpg") ?>);">
+    <div class="container-fluid page-header-inner py-5">
+        <div class="container text-center pb-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">
+                <?php the_title(); ?>
+            </h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                </ol>
+            </nav>
         </div>
-        <!-- Page Header End -->
+    </div>
+</div>
+<!-- Page Header End -->
 
-
-    <!-- About Start -->
-      <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-        <h1 class="mb-5"><span class="text-primary text-uppercase"><?php the_title(); ?></span></h1>
-        <div class="col-lg-12">
-        <p class="mb-10">
-        <?php
-            while(have_posts()){ 
-                the_post(); 
-                ?>
-                <?php the_content(); ?>
-                
-                <?php
-                }
-                ?>
-        </p>
-      </div>
-              <br></br>
-              <h6 class="section-title text-center text-primary text-uppercase"></h6>
-        </div>
-
-        <!-- Steps Start -->
-    <div class="container-xxl py-5">
-      <div class="container">
-          <div class="row g-5 align-items-center">
-            <div class="col-lg-6">
-                
-                <h1 class="mb-4">
-                How you can help 
-                <span class="text-primary text-uppercase">Save Lives</span>
-                </h1>
+<!-- Article Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="post-article-div row g-5 align-items-center">
+            <div class="post-article col-lg-12">
+                <i class="fa fas fa-search fa-2x"> </i>
+                <h6 class="section-title text-start text-primary text-uppercase">
+                    <a href=<?php echo get_post_type_archive_link(get_post_type()); ?>><?php echo get_post_type() ?></a>
+                </h6>
+                <h6 class="">
+                    <?php echo the_time('M j, Y') . "  " ?> &bull;
+                    <?php echo "  " . get_field('reading_time') . " min read" ?>
+                </h6>
+                <div class="spacer-10"></div>
                 <p class="mb-4">
-                Here are some easy steps to
-                    <span class="text-primary text-uppercase">Volunteer</span>
-                    <br />
-                    
-                    <h5>Step 1</h5><br />
-                    Go to our site and select the Volunteer Opportunities option.
-                    <br /><br />
-                    
-                    <h5>Step 2</h5><br />
-                    Fill out information required on form and click submit once completed.
-                    <br /><br />
-                    
-                    <h5> Step 3</h5><br />
-                    Look our for confirmation email and further instructions.
-                    <br /><br />
+                    <?php echo the_content(); ?>
                 </p>
             </div>
-                <div class="col-lg-6">
-                  <div class="row g-3">
-                    <div class="col-6 text-end">
-                      <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.5s" src=<?php echo get_template_directory_uri() . "/img/carousel-3.jpg" ?>>
+
+            <div class="spacer-10"></div>
+
+            <div class="container-xxl py-5">
+                <div class="container">
+                    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                        <h6 class="section-title text-center text-primary text-uppercase">GET INVOLVED</h6>
+                        <h1 class="mb-5">How You Can <span class="text-primary text-uppercase">Help</span></h1>
                     </div>
-                    <div class="col-6 text-start">
-                      <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.5s" src=<?php echo get_template_directory_uri() . "/img/carousel-4.jpg" ?>>
+
+                    <div class="row g-4">
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="step service-item rounded" href="">
+                                <div class="service-icon bg-transparent border rounded p-1">
+                                    <div
+                                        class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
+                                        <i class="fa fa-solid fa-1 fa-2x text-primary"></i>
+                                    </div>
+                                </div>
+                                <h5 class="mb-3">Get in Touch</h5>
+                                <p class="text-body mb-0">Send an email to info@charitable.accesstt.com with ‘Volunteer’
+                                    in the subject
+                                    line with your name and contact details.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="step service-item rounded" href="">
+                                <div class="service-icon bg-transparent border rounded p-1">
+                                    <div
+                                        class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
+                                        <i class="fa fa-2 fa-2x text-primary"></i>
+
+                                    </div>
+                                </div>
+                                <h5 class="mb-3">Find an Opportunity</h5>
+                                <p class="text-body mb-0">The Charitable team will get in touch and discuss any
+                                    volunteer opportunities currently available and how we can best put your great
+                                    skills to use.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="step service-item rounded" href="">
+                                <div class="service-icon bg-transparent border rounded p-1">
+                                    <div
+                                        class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
+                                        <i class="fa fa-3 fa-2x text-primary"></i>
+
+                                    </div>
+                                </div>
+                                <h5 class="mb-3">Get Volunteering!</h5>
+                                <p class="text-body mb-0">It could be a technology project, working with our
+                                    Communications team or helping out on a fundraising event.
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-6 text-end">
-                      <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.5s" src=<?php echo get_template_directory_uri() . "/img/carousel-5.jpg" ?>>
-                    </div>
-                    <div class="col-6 text-end">
-                      <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.5s" src=<?php echo get_template_directory_uri() . "/img/carousel-6.jpg" ?>>
-                    </div>
-                  </div>
                 </div>
-                <h1 class="mb-4">
-                <span class="text-primary text-uppercase">Volunteer Testimonials</span>
-                </h1>
-                  <div class="col-lg-6">
-                    <img src=<?php echo get_theme_file_uri("img/testimonial-1.jpg") ?> alt="Avatar" style="width:90px">
-                    <p>
-                      <span>Jane Doe</span><br></br>
-                    </p>
-                    <p>It is very rewarding to be apart of this charity.</p>
-                  </div>
-                  <div class="col-lg-6">
-                    <img src=<?php echo get_theme_file_uri("img/testimonial-2.jpg") ?> alt="Avatar" style="width:90px">
-                    <p>
-                      <span>Chris Fox.</span><br></br> 
-                    </p>
-                    <p>It's amazing to see the impact we have on people's lives</p>
-                  </div>
-                  <div class="col-lg-6">
-                    <img src=<?php echo get_theme_file_uri("img/testimonial-3.jpg") ?> alt="Avatar" style="width:90px">
-                    <p>
-                      <span>Tom Chin.</span><br></br> 
-                    </p>
-                    <p>It makes me so happy so help people who had to flee their countries</p>
-                  </div>
-                  <div class="col-lg-6">
-                    <img src=<?php echo get_theme_file_uri("img/testimonial-4.jpg") ?> alt="Avatar" style="width:90px">
-                    <p>
-                      <span>Jamie Thomas</span><br></br> 
-                    </p>
-                    <p>It broke my heart when I saw the devastation. I had to help in any way and this charity helped me do that</p>
-                  </div>
+            </div>
 
-          </div>
-      </div>
+        </div>
+        <div class="spacer"></div>
+        <div class="post-article col-lg-12">
+            <h6 class="section-title text-start text-primary text-uppercase">
+                Related
+            </h6>
+            <h4 class="text-start text-uppercase">
+                News
+            </h4>
+            <div class="spacer-50"></div>
+            <div class="row g-4">
+                <?php
+                $related = get_field('related_news');
+                if ($related) {
+
+
+                    foreach ($related as $item) {
+                        ?>
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <a class="service-item rounded" href=<?php the_permalink($item); ?>>
+                                <div>
+                                    <div class="card-img-div">
+                                        <img class="card-img" src=<?php echo get_the_post_thumbnail_url($item, 'card') ?>
+                                            alt="Image">
+                                    </div>
+                                </div>
+                                <p class="text-body card-date mb-0">
+                                    <?php echo the_time("M j, Y") . " | " . strtoupper(get_post_type($item)); ?>
+                                </p>
+                                <h5 class="mb-3" style="color:var(--primary);">
+                                    <?php echo trim(substr(get_the_title($item), 0, 35)), (strlen(get_the_title($item)) > 35) ? " ..." : ""; ?>
+                                </h5>
+                                <p class="text-body mb-0">
+                                    <?php echo trim(substr(get_the_content(null, false, $item), 0, 60)), (strlen(get_the_content(null, false, $item)) > 35) ? " ..." : ""; ?>
+                                </p>
+                            </a>
+                        </div>
+                        <?php
+                    }
+                }
+                ?>
+            </div>
+        </div>
     </div>
-        <!-- Steps End -->  
+</div>
+<!-- Article End -->
 
-<?php get_footer() ?>
+<?php
+get_footer()
+    ?>

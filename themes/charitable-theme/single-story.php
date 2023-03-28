@@ -1,102 +1,94 @@
 <?php get_header() ?>
 
 <!-- Page Header Start -->
-<div class="container-fluid page-header mb-5 p-0" 
-    style="background-image: url(<?php echo get_theme_file_uri("img/carousel-3.jpg") ?>);">
-            <div class="container-fluid page-header-inner py-5">
-                <div class="container text-center pb-5">
-                    <h1 class="display-3 text-white mb-3 animated slideInDown">Impact Stories
-                    </h1>
-              
-                </div>
-            </div>
+<div class="container-fluid page-header mb-5 p-0"
+    style="background-image: url(<?php echo get_theme_file_uri("img/story-2.jpg") ?>);">
+    <div class="container-fluid page-header-inner py-5">
+        <div class="container text-center pb-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">
+                <?php the_title(); ?>
+            </h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                </ol>
+            </nav>
         </div>
-        <!-- Page Header End -->
-
-
-    <!-- About Start -->
-      <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-        <h1 class="mb-5"><span class="text-primary text-uppercase"><?php the_title(); ?></span></h1>
-            <h8 class="display-12 text-black mb-3 animated slideInDown">
-               Link: <?php the_permalink(); ?><br></br>
-              Author: <?php the_author(); ?><br></br>
-              Date:<?php echo get_the_date( 'l, F d, Y' ); ?><br></br>
-              Read Duration:
-              </h8>
-              <br></br>
-              <h6 class="section-title text-center text-primary text-uppercase"></h6>
-        </div>
-
-<!-- About Start -->
-<div class="container-xxl py-5">
-  <div class="container">
-    <div class="row g-5 align-items-center">
-      <div class="col-lg-6">
-        
-        
-        <p class="mb-4">
-        <?php
-                while(have_posts()){ 
-                    the_post(); 
-                    ?>
-                    <?php the_content(); ?>
-                    
-                    <?php
-                    }
-            ?>
-        </p> 
-      </div>
-      <div class="col-lg-6">
-        <div class="row g-3">
-          <div class="col-12 text-end">
-            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.5s" src=<?php echo get_template_directory_uri() . "/img/carousel-3.jpg" ?>>
-          </div>
-          <br></br>
-          <br></br>
-        </div> 
-      </div>
-      
-
-  
-      <div class="wow fadeInUp" data-wow-delay="0.1s">
-            <h6 class="section-title text-start text-primary text-uppercase">
-            </h6>
-            <h1 class="mb-5">Related Stories</h1>
-        </div>
-        <div class="row g-4">
-      <?php
-      $news = new WP_Query(
-        array(
-          'posts_per_page' =>
-          -1,
-          'post_type' => 'story'
-        )
-      );
-      while ($news->have_posts()) {
-        $news->the_post(); ?>
-        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-          <a class="service-item rounded" href=<?php the_permalink(); ?>>
-            <div>
-              <div>
-                <img class="w-75" src=<?php echo get_template_directory_uri() . "/img/carousel-4.jpg" ?> alt="Image">
-              </div>
-            </div>
-            <h5 class="mb-3">
-              <?php echo wp_trim_words(get_the_title(), 6); ?>
-            </h5>
-            <p class="text-body mb-0">
-              <?php echo wp_trim_words(get_the_content(), 10); ?>
-            </p>
-          </a>
-        </div>
-        <?php
-      }
-      ?>
-    </div>            
     </div>
-  </div>
 </div>
-<!-- About End -->
+<!-- Page Header End -->
 
+<!-- Article Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="post-article-div row g-5 align-items-center">
+            <div class="post-article col-lg-12">
+                <i class="fa fas fa-history fa-2x"> </i>
+                <h6 class="section-title text-start text-primary text-uppercase">
+                    <a href=<?php echo get_post_type_archive_link(get_post_type()); ?>><?php echo get_post_type() ?></a>
+                </h6>
+                <h6 class="">
+                    <?php echo the_time('M j, Y') . "  " ?> &bull;
+                    <?php echo "  " . get_field('reading_time') . " min read" ?>
+                </h6>
+                <div class="spacer-10"></div>
+                <p class="mb-4">
+                    <?php echo the_content(); ?>
+                </p>
+            </div>
+            <div class="post-article col-lg-12">
+                <img class="post-img" src=<?php echo get_field('image')['url'] ?>>
+            </div>
+            <div class="post-article col-lg-12">
+                <p class="mb-4">
+                    <?php echo get_field('extra'); ?>
+                </p>
+            </div>
+        </div>
+        <div class="spacer"></div>
+        <div class="post-article col-lg-12">
+            <h6 class="section-title text-start text-primary text-uppercase">
+                Related
+            </h6>
+            <h4 class="text-start text-uppercase">
+                Volunteering Opportunities
+            </h4>
+            <div class="spacer-50"></div>
+            <div class="row g-4">
+                <?php
+                $related = get_field('related_opportunities');
+                foreach ($related as $item) {
+                    ?>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <a class="service-item rounded" href=<?php the_permalink($item); ?>>
+                            <div>
+                                <div class="card-img-div">
+                                    <img class="card-img" src=<?php echo get_the_post_thumbnail_url($item, 'card') ?>
+                                        alt="Image">
+                                </div>
+                            </div>
+                            <p class="text-body card-date mb-0">
+                                <?php echo the_time("M j, Y") . " | " . strtoupper(get_post_type($item)); ?>
+                            </p>
+                            <h5 class="mb-3" style="color:var(--primary);">
+                                <?php echo trim(substr(get_the_title($item), 0, 35)), (strlen(get_the_title($item)) > 35) ? " ..." : ""; ?>
+                            </h5>
+                            <p class="text-body mb-0">
+                                <?php echo trim(substr(get_the_content(null, false, $item), 0, 60)), (strlen(get_the_content(null, false, $item)) > 35) ? " ..." : ""; ?>
+                            </p>
+                        </a>
+                    </div>
+                    <?php
+                }
+                ?>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Article End -->
 
-<?php get_footer() ?>
+<?php
+get_footer()
+    ?>
