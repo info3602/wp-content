@@ -6,10 +6,11 @@
             <input type="text" class="search-term" placeholder="Search" id="search-term"/>
             <i class="fa fa-window-close search-overlay__close" aria-hidden="true"></i>
         </div>
-        <div class="container">
-            <div class="search-overlay__results" id ="search-overlay__results"></div>
-        </div>
     </div>
+    <div class="container">
+                <div class="search-overlay__results" id ="search-overlay__results"></div>
+    </div>
+
 </div>
 <div class="container-fluid bg-dark text-light footer wow fadeIn" data-wow-delay="0.1s">
     <div class="container pb-5">
