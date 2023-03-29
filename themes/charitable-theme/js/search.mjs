@@ -20,15 +20,15 @@ class Search {
     }
 
 
-    async getResults(){
+    getResults(){
         console.log("results");
-        $.getJSON("http://info3602.local/wp-json/wp/v2/story?search" + this.searchField.value,
+        $.getJSON(charity_url.root_url+"/wp-json/charitable/v1/all?search=" + this.searchField.value,
         posts=>{
             this.resultsDiv.html(`
             <h2 class = "search-overlay__section-title">Search Results</h2>
-            <ul class="link-list min-list">
-                ${posts.map(item=>`<li><a href="${item.link}">${item.title.rendered}</a></li>`).join('')}
-            </ul>
+                ${posts.length ? '<ul class="link-list min-list">'  : '<p>No results with term</p>'}
+                    ${posts.map(item=>`<li><a href="${item.permalink}">${item.title}</a></li>`).join('')}
+                ${posts.length ? '</ul>'  : ''}
 
             `);
         });
@@ -48,8 +48,9 @@ class Search {
                 }
             }
             else{
-                this.resultsDiv.innerHTML = "";
+                this.resultsDiv.html("");
                 this.isSpinnerVisible = false;
+                this.previousValue = ""
             }
 
             this.typingTimer = setTimeout(this.getResults.bind(this),2000);
