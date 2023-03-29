@@ -9,7 +9,6 @@
     }
 
     function get_custom_posts( $request ) {
-        $post_data = [];
         $params = $request->get_params();
         $search_query = isset( $params['search'] ) ? $params['search'] : '';
         $args = array(
