@@ -5,7 +5,7 @@ class Search {
       this.closeButton = document.querySelector(".search-overlay__close");
       this.searchOverlay = document.querySelector(".search-overlay");
       this.searchField = document.querySelector("#search-term");
-      this.resultsDiv = document.querySelector(".search-overlay__results");
+      this.resultsDiv = $(".search-overlay__results");
       this.typiningTimer;
       this.isSpinnerVisible = false;
       this.previousValue=""
@@ -20,20 +20,30 @@ class Search {
     }
 
 
-    getResults(term){
+    async getResults(){
         console.log("results");
-        this.resultsDiv.innerHTML="Imagine Search Results Here"
+        $.getJSON("http://info3602.local/wp-json/wp/v2/story?search" + this.searchField.value,
+        posts=>{
+            this.resultsDiv.html(`
+            <h2 class = "search-overlay__section-title">Search Results</h2>
+            <ul class="link-list min-list">
+                ${posts.map(item=>`<li><a href="${item.link}">${item.title.rendered}</a></li>`).join('')}
+            </ul>
+
+            `);
+        });
+        
     }
 
     
     typingLogic(){
-        console.log(this.searchField.value.localeCompare(this.previousValue) )
+        
         if(this.searchField.innerHTML.localeCompare(this.previousValue) !== 0){ 
             
             clearTimeout(this.typingTimer);
             if(this.searchField.value !== ""){ 
                 if(!this.isSpinnerVisible){
-                    this.resultsDiv.innerHTML = '<div class="spinner-loader"></div>';
+                    this.resultsDiv.html('<div class="spinner-loader"></div>')  ;
                     this.isSpinnerVisible = true;
                 }
             }
@@ -42,7 +52,7 @@ class Search {
                 this.isSpinnerVisible = false;
             }
 
-            this.typingTimer = setTimeout(this.getResults(this.searchField.value).bind(this),2000);
+            this.typingTimer = setTimeout(this.getResults.bind(this),2000);
             }
         this.previousValue = this.searchField.value;
     }   
