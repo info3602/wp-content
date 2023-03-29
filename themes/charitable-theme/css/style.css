@@ -738,3 +738,7 @@ li.current_page_item a {
   .comment.li::marker {
     display: none;
   }
+
+  .comment-form-comment textarea {
+    max-width: 100%;
+  }

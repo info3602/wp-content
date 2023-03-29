@@ -4,8 +4,6 @@
     ?>
 </div>
 
-
-
 <?php
 if (have_comments()) { ?>
     <div class="spacer-50"></div>
@@ -13,8 +11,6 @@ if (have_comments()) { ?>
     <div class="spacer-10"></div>
 <?php }
 ?>
-
-
 
 <div class="comment-section">
     <?php
