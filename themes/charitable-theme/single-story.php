@@ -46,6 +46,13 @@
                     <?php echo get_field('extra'); ?>
                 </p>
             </div>
+            <div class="post-article col-lg-12">
+                <p class="mb-4">
+                    <?php
+                    comments_template();
+                    ?>
+                </p>
+            </div>
         </div>
         <div class="spacer"></div>
         <div class="post-article col-lg-12">
@@ -88,6 +95,15 @@
     </div>
 </div>
 <!-- Article End -->
+
+<script type="text/javascript">
+    let submit = document.querySelector("#submit");
+    submit.classList.add("btn");
+    submit.classList.add("btn-primary");
+    submit.classList.add("py-md-3");
+    submit.classList.add("px-md-5");
+    submit.classList.add("me-3");
+</script>
 
 <?php
 get_footer()

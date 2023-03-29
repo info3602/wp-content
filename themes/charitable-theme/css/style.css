@@ -719,3 +719,22 @@ li.current_page_item a {
     flex-wrap: wrap;
   }
   
+  /* .hide-elem {
+    display: none;
+  } */
+
+  .comment-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .comment {
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 10px;
+  }
+
+  .comment.li::marker {
+    display: none;
+  }

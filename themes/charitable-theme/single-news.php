@@ -51,47 +51,64 @@
                     <?php echo get_field('extra'); ?>
                 </p>
             </div>
-        </div>
-        <div class="spacer"></div>
-        <div class="post-article col-lg-12">
-            <h6 class="section-title text-start text-primary text-uppercase">
-                Related
-            </h6>
-            <h4 class="text-start text-uppercase">
-                Impact Stories
-            </h4>
-            <div class="spacer-50"></div>
-            <div class="row g-4">
-                <?php
-                $related = get_field('related_stories');
-                foreach ($related as $item) {
-                    ?>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <a class="service-item rounded" href=<?php the_permalink($item); ?>>
-                            <div>
-                                <div class="card-img-div">
-                                    <img class="card-img" src=<?php echo get_the_post_thumbnail_url($item, 'card') ?>
-                                        alt="Image">
-                                </div>
-                            </div>
-                            <p class="text-body card-date mb-0">
-                                <?php echo the_time("M j, Y") . " | " . strtoupper(get_post_type($item)); ?>
-                            </p>
-                            <h5 class="mb-3" style="color:var(--primary);">
-                                <?php echo trim(substr(get_the_title($item), 0, 35)), (strlen(get_the_title($item)) > 35) ? " ..." : ""; ?>
-                            </h5>
-                            <p class="text-body mb-0">
-                                <?php echo trim(substr(get_the_content(null, false, $item), 0, 60)), (strlen(get_the_content(null, false, $item)) > 35) ? " ..." : ""; ?>
-                            </p>
-                        </a>
-                    </div>
+            <div class="post-article col-lg-12">
+                <p class="mb-4">
                     <?php
-                }
-                ?>
+                    comments_template();
+                    ?>
+                </p>
             </div>
         </div>
     </div>
+    <div class="spacer"></div>
+    <div class="post-article col-lg-12">
+        <h6 class="section-title text-start text-primary text-uppercase">
+            Related
+        </h6>
+        <h4 class="text-start text-uppercase">
+            Impact Stories
+        </h4>
+        <div class="spacer-50"></div>
+        <div class="row g-4">
+            <?php
+            $related = get_field('related_stories');
+            foreach ($related as $item) {
+                ?>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <a class="service-item rounded" href=<?php the_permalink($item); ?>>
+                        <div>
+                            <div class="card-img-div">
+                                <img class="card-img" src=<?php echo get_the_post_thumbnail_url($item, 'card') ?>
+                                    alt="Image">
+                            </div>
+                        </div>
+                        <p class="text-body card-date mb-0">
+                            <?php echo the_time("M j, Y") . " | " . strtoupper(get_post_type($item)); ?>
+                        </p>
+                        <h5 class="mb-3" style="color:var(--primary);">
+                            <?php echo trim(substr(get_the_title($item), 0, 35)), (strlen(get_the_title($item)) > 35) ? " ..." : ""; ?>
+                        </h5>
+                        <p class="text-body mb-0">
+                            <?php echo trim(substr(get_the_content(null, false, $item), 0, 60)), (strlen(get_the_content(null, false, $item)) > 35) ? " ..." : ""; ?>
+                        </p>
+                    </a>
+                </div>
+                <?php
+            }
+            ?>
+        </div>
+    </div>
+</div>
 </div>
 <!-- Article End -->
+
+<script type="text/javascript">
+    let submit = document.querySelector("#submit");
+    submit.classList.add("btn");
+    submit.classList.add("btn-primary");
+    submit.classList.add("py-md-3");
+    submit.classList.add("px-md-5");
+    submit.classList.add("me-3");
+</script>
 
 <?php get_footer() ?>

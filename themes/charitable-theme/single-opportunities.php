@@ -33,13 +33,22 @@
                     <?php echo the_time('M j, Y') . "  " ?> &bull;
                     <?php echo "  " . get_field('reading_time') . " min read" ?>
                 </h6>
+                <h6 class="">
+                    <?php echo "Location: " . get_field('location') ?>
+                </h6>
                 <div class="spacer-10"></div>
                 <p class="mb-4">
                     <?php echo the_content(); ?>
                 </p>
             </div>
 
-            <div class="spacer-10"></div>
+            <div class="post-article col-lg-12">
+                <p class="mb-4">
+                    <?php
+                    comments_template();
+                    ?>
+                </p>
+            </div>
 
             <div class="container-xxl py-5">
                 <div class="container">
@@ -100,6 +109,7 @@
             </div>
 
         </div>
+
         <div class="spacer"></div>
         <div class="post-article col-lg-12">
             <h6 class="section-title text-start text-primary text-uppercase">
@@ -145,6 +155,15 @@
     </div>
 </div>
 <!-- Article End -->
+
+<script type="text/javascript">
+    let submit = document.querySelector("#submit");
+    submit.classList.add("btn");
+    submit.classList.add("btn-primary");
+    submit.classList.add("py-md-3");
+    submit.classList.add("px-md-5");
+    submit.classList.add("me-3");
+</script>
 
 <?php
 get_footer()
