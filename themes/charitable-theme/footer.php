@@ -4,7 +4,10 @@
         <div class="container">
             <i class="fa fa-search search-overlay__icon" aria-hidden="true"></i>
             <input type="text" class="search-term" placeholder="Search" id="search-term"/>
-            <i class="fa fa-search search-overlay__close" aria-hidden="true"></i>
+            <i class="fa fa-window-close search-overlay__close" aria-hidden="true"></i>
+        </div>
+        <div class="container">
+            <div class="search-overlay__results" id ="search-overlay__results"></div>
         </div>
     </div>
 </div>

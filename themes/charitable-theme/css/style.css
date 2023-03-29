@@ -843,3 +843,8 @@ li.current_page_item a {
     color: #F95738;
   
   }
+
+  .body-no-scroll {
+    overflow: hidden;
+  }
+  
