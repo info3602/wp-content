@@ -29,6 +29,7 @@
 </head>
 
 <body>
+
     <div class="container-xxl bg-white p-0">
         <!-- Header Start -->
         <div class="container-fluid bg-dark px-0">
@@ -71,15 +72,8 @@
                         </button>
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
-                                <?php
-                                // wp_nav_menu(
-                                //     array(
-                                //         'theme_location' => 'header',
-                                //         'menu_class' => "navbar-nav mr-auto py-0",
-                                //     )
-                                // );
-                                ?>
-                                <span class="search-trigger js-search-trigger"><i class="fa fa-search" aria-hidden="true"></i></span>
+
+                                <a id="js-search-trigger" class = "nav-item nav-link"><i class="fa fa-search" aria-hidden="true"></i></a>
                                 <a href=<?php echo site_url(); ?>
                                     class="nav-item nav-link <?php echo (is_front_page()) ? "active" : "" ?>">Home
                                 </a>

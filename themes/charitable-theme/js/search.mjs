@@ -1,7 +1,7 @@
 // import $ from "jquery";
 class Search {
     constructor() {
-      this.openButton = document.querySelector(".js-search-trigger");
+      this.openButton = document.querySelector("#js-search-trigger");
       this.closeButton = document.querySelector(".search-overlay__close");
       this.searchOverlay = document.querySelector(".search-overlay");
       this.searchField = document.querySelector("#search-term");
@@ -37,7 +37,7 @@ class Search {
 
     
     typingLogic(){
-        
+        console.log("test");
         if(this.searchField.innerHTML.localeCompare(this.previousValue) !== 0){ 
             
             clearTimeout(this.typingTimer);
