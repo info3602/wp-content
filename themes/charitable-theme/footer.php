@@ -1,15 +1,16 @@
 <!-- Footer Start -->
-<div class= "search-overlay">
-    <div class="search-overlay__top">
+<div class= "search-overlay card">
+    <div class="search-overlay__top card-body">
+        <div class="container input-group">
+            <button class="btn btn-primary" type="button"><i class="bi bi-search"></i></button>
+            <input type="text" class="search-term form-control" placeholder="Search" id="search-term"/>
+            <button class="btn btn-primary" type="button" id = "close"><i class="bi bi-arrow-left-square"></i></button>
+        </div>
         <div class="container">
-            <i class="fa fa-search search-overlay__icon" aria-hidden="true"></i>
-            <input type="text" class="search-term" placeholder="Search" id="search-term"/>
-            <i class="fa fa-window-close search-overlay__close" aria-hidden="true"></i>
+                <div class="search-overlay__results" ></div>
         </div>
     </div>
-    <div class="container">
-                <div class="search-overlay__results" id ="search-overlay__results"></div>
-    </div>
+
 
 </div>
 <div class="container-fluid bg-dark text-light footer wow fadeIn" data-wow-delay="0.1s">

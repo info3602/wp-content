@@ -2,7 +2,7 @@
 class Search {
     constructor() {
       this.openButton = document.querySelector("#js-search-trigger");
-      this.closeButton = document.querySelector(".search-overlay__close");
+      this.closeButton = document.querySelector("#close");
       this.searchOverlay = document.querySelector(".search-overlay");
       this.searchField = document.querySelector("#search-term");
       this.resultsDiv = $(".search-overlay__results");

@@ -698,17 +698,14 @@ li.current_page_item a {
     opacity: .65;
   }
  
-
-
   .search-overlay {
-    overflow-y: auto;
     overflow-x: hidden;
     z-index: 110;
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 150px;
+    left: 50px;
+    right: 50px;
+    bottom: 10px;
     background-color: rgba(255, 255, 255, .96);
     visibility: hidden;
     opacity: 0;
@@ -718,6 +715,10 @@ li.current_page_item a {
     transition: opacity .3s, transform .3s, visibility .3s;
     transition: opacity .3s, transform .3s, visibility .3s, -webkit-transform .3s;
     box-sizing: border-box;
+  }
+  
+  .search-overlay__results{
+    overflow-y: auto;
   }
   
   .search-overlay p {
@@ -884,5 +885,20 @@ li.current_page_item a {
   
   .min-list li {
     list-style: none;
+  }
+  
+
+  .search-results-overlay {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    background-color: white;
+    border: 1px solid #ced4da;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+    max-height: 300px;
   }
   
