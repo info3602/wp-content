@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <div class="container-fluid page-header mb-5 p-0"
-  style="background-image: url(<?php echo get_theme_file_uri("img/carousel-3.jpg") ?>);">
+  style="background-image: url(<?php echo get_theme_file_uri("img/blog-1.webp") ?>);">
   <div class="container-fluid page-header-inner py-5">
     <div class="container text-center pb-5">
       <h1 class="display-3 text-white mb-3 animated slideInDown">

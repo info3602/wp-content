@@ -2,7 +2,7 @@
 
 <!-- Page Header Start -->
 <div class="container-fluid page-header mb-5 p-0"
-    style="background-image: url(<?php echo get_theme_file_uri("img/carousel-3.jpg") ?>);">
+    style="background-image: url(<?php echo get_theme_file_uri("img/values-0.webp") ?>);">
     <div class="container-fluid page-header-inner py-5">
         <div class="container text-center pb-5">
             <h1 class="display-3 text-white mb-3 animated slideInDown">
@@ -127,27 +127,6 @@
     </div>
 </div>
 <!-- Values End -->
-
-<!-- Split Start -->
-<div class="container-xxl py-5 px-0 wow zoomIn" data-wow-delay="0.1s">
-    <div class="row g-0">
-        <div class="col-md-6 bg-dark d-flex align-items-center">
-            <div class="p-5">
-                <h6 class="section-title text-start text-white text-uppercase mb-3">Help Us</h6>
-                <h1 class="text-white mb-4">Make a difference today</h1>
-                <p class="text-white mb-4">When a disaster strikes, recovery efforts led by people who live and work in
-                    affected communities are often overlooked and underfunded. Charitable is changing this reality.
-                </p>
-                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3">Donate Now</a>
-            </div>
-        </div>
-        <div class="col-md-6 d-flex align-items-center"
-            style="background-image: url(<?php echo get_theme_file_uri("/img/carousel-3.jpg"); ?>)">
-        </div>
-    </div>
-</div>
-
-<!-- Split Start -->
 
 
 <?php get_footer() ?>
