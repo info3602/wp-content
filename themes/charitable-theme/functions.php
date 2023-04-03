@@ -28,6 +28,12 @@ function enqueue_scripts()
     wp_enqueue_script('jquery');
 }
 
+function enqueue_login_style()
+{
+    wp_enqueue_style("login_styles",get_template_directory_uri() . "/login.css");
+}
+add_action('login_enqueue_scripts', 'enqueue_login_style');
+
 //Redirect subscriber accounts out of admin and onto homepage
 add_action('admin_init', 'redirectSubsToFrontend');
 function redirectSubsToFrontend()
