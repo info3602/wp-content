@@ -110,7 +110,7 @@
         </div>
 
         <?php
-        $related = get_field('related_stories');
+        $related = get_field('related_news');
         if ($related) {
             ?>
             <div class="spacer"></div>

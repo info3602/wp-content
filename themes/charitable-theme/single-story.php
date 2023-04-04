@@ -56,7 +56,7 @@
         </div>
 
         <?php
-        $related = get_field('related_stories');
+        $related = get_field('related_opportunities');
         if ($related) {
             ?>
             <div class="spacer"></div>
