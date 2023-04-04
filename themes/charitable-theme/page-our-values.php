@@ -45,7 +45,7 @@
 
         </div>
 
-        <div class="row g-4">
+        <div class="row g-4 values">
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="service-item rounded" href="">
                     <div class="service-icon bg-transparent border rounded p-1">
