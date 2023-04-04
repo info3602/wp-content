@@ -22,7 +22,7 @@ function enqueue_scripts()
     wp_enqueue_style('functions_5', get_template_directory_uri() . "/lib/owlcarousel/owl.carousel.min.js");
     wp_enqueue_style('functions_6', get_template_directory_uri() . "/lib/tempusdominus/js/moment.min.js");
     wp_enqueue_style('functions_7', get_template_directory_uri() . "/lib/tempusdominus/js/moment-timezone.min.js");
-    
+
     wp_enqueue_style('functions_1', get_template_directory_uri() . "/js/main.js");
 
     wp_enqueue_script('jquery');
@@ -31,7 +31,7 @@ function enqueue_scripts()
 function enqueue_login_style()
 {
     wp_enqueue_style('login_styles_1', get_template_directory_uri() . "/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js");
-    wp_enqueue_style("login_styles_0",get_template_directory_uri() . "/css/login.css");
+    wp_enqueue_style("login_styles_0", get_template_directory_uri() . "/css/login.css");
 }
 
 
@@ -111,54 +111,71 @@ function create_message()
     wp_die();
 }
 
-add_filter('login_headerurl','ourHeaderUrl');
- function ourHeaderUrl(){
+add_filter('login_headerurl', 'ourHeaderUrl');
+function ourHeaderUrl()
+{
     return esc_url(site_url('/'));
- }
+}
 
-function wpb_login_background() { 
+function wpb_login_background()
+{
 
     ?>
-   
-    <style type="text/css">
 
+    <style type="text/css">
         body.login {
-            background-image: url("<?php echo get_template_directory_uri() . "/img/background.jpg"  ?>"); 
-            /* filter: blur(6px); 
-            -webkit-filter:blur(6px);  */
-            /* padding-top:10%; */
-            
-            height:90%;
-            width:100%;
-            background-size: 100% 80%;
+            background-image: url("<?php echo get_template_directory_uri() . "/img/bg2.jpg" ?>");
+            background-size: cover;
             background-color: #0F172B;
+            background-position: center;
             background-repeat: no-repeat;
         }
-        
-        #nav > a{
-            color:#FEA116 !important;
-            
-        }    
-        #backtoblog >a {
-            color:#FEA116 !important;
-        }   
 
- 
+        input {
+            border: solid 1px orange !important;
+        }
 
-        #login h1 a, .login h1 a {
-        background-image: url(<? echo get_template_directory_uri() . "/img/logo02.png" ?>);
-        height:150px;
-        width:250px;
-    
-        background-size: 250px 250px;
-        background-repeat: no-repeat;
-        
+        input:focus {
+            outline: solid orange 1px !important;
+        }
+
+        .dashicons {
+            color: orange;
+        }
+
+        .message {
+            border-left: 4px solid orange !important;
+        }
+
+        #nav>a {
+            color: white !important;
+
+        }
+
+        #backtoblog>a {
+            color: white !important;
+        }
+
+        body.login div#login form#loginform {
+            z-index: 999;
+        }
+
+
+        #login h1 a,
+        .login h1 a {
+            background-image: url(<? echo get_template_directory_uri() . "/img/logo02.png" ?>);
+            height: 150px;
+            width: 250px;
+
+            background-size: 250px 250px;
+            background-repeat: no-repeat;
+
         }
     </style>
 
 
 <?php }
-add_action( 'login_enqueue_scripts', 'wpb_login_background' );
+add_action('login_enqueue_scripts', 'wpb_login_background');
 
 
 
