@@ -26,9 +26,21 @@ function enqueue_scripts()
     wp_enqueue_style('functions_8', get_template_directory_uri() . "/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js");
     wp_enqueue_script('functions_9', get_template_directory_uri() . "/js/main.js");
     wp_enqueue_script('functions_10', get_template_directory_uri() . "/js/search.mjs");
+
     wp_enqueue_script('jquery');
     wp_localize_script("functions_9","charity_url",array("root_url"=> get_site_url()));
 }
+
+
+function enqueue_login_style()
+{
+    wp_enqueue_style('login_styles_1', get_template_directory_uri() . "/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js");
+    wp_enqueue_style("login_styles_0", get_template_directory_uri() . "/css/login.css");
+}
+
+
+
+add_action('login_enqueue_scripts', 'enqueue_login_style');
 
 
 //Redirect subscriber accounts out of admin and onto homepage
@@ -102,5 +114,71 @@ function create_message()
     wp_send_json_success("success");
     wp_die();
 }
+
+add_filter('login_headerurl', 'ourHeaderUrl');
+function ourHeaderUrl()
+{
+    return esc_url(site_url('/'));
+}
+
+function wpb_login_background()
+{
+
+    ?>
+
+    <style type="text/css">
+        body.login {
+            background-image: url("<?php echo get_template_directory_uri() . "/img/bg2.jpg" ?>");
+            background-size: cover;
+            background-color: #0F172B;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        input {
+            border: solid 1px orange !important;
+        }
+
+        input:focus {
+            outline: solid orange 1px !important;
+        }
+
+        .dashicons {
+            color: orange;
+        }
+
+        .message {
+            border-left: 4px solid orange !important;
+        }
+
+        #nav>a {
+            color: white !important;
+
+        }
+
+        #backtoblog>a {
+            color: white !important;
+        }
+
+        body.login div#login form#loginform {
+            z-index: 999;
+        }
+
+
+        #login h1 a,
+        .login h1 a {
+            background-image: url(<? echo get_template_directory_uri() . "/img/logo02.png" ?>);
+            height: 150px;
+            width: 250px;
+
+            background-size: 250px 250px;
+            background-repeat: no-repeat;
+
+        }
+    </style>
+
+
+<?php }
+add_action('login_enqueue_scripts', 'wpb_login_background');
 
 ?>

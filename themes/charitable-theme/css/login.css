@@ -1,0 +1,22 @@
+
+body.login .button-primary {
+    background-color: #FEA116;
+    border-color: color(#FEA116 b(+10%));
+    text-shadow: 0 -1px 1px color(#FEA116 b(+15%)),1px 0 1px color(r#FEA116 b(+15%)),0 1px 1px color(#FEA116 b(+15%)),-1px 0 1px color(#FEA116 b(+15%));
+    box-shadow: 0 1px 0 color(#FEA116 b(+20%));
+  }
+  
+  body.login .button-primary:hover,
+  body.login .button-primary:active,
+  body.login .button-primary:focus {
+    background-color: #FEA116;
+    border-color: #FEA116;
+    text-shadow: 0 -1px 1px color(#FEA116 b(+20%)),1px 0 1px color(#FEA116 b(+20%)),0 1px 1px color(#FEA116 b(+20%)),-1px 0 1px color(#FEA116 b(+20%));
+    box-shadow: 0 1px 0 color(#FEA116 b(+25%));
+  }
+  
+
+  
+
+
+
