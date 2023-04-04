@@ -23,7 +23,7 @@ if (have_comments()) { ?>
 
 <div class="spacer-10"></div>
 
-<div class="comment-links">
+<div class="paginate-links">
     <?php
     paginate_comments_links();
     ?>

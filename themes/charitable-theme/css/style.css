@@ -742,3 +742,20 @@ li.current_page_item a {
   .comment-form-comment textarea {
     max-width: 100%;
   }
+
+.paginate-links {
+    text-align: center;
+    margin: 10px -2px -4px;
+}
+.paginate-links .page-numbers {
+    display: inline-block;
+    line-height: 32px;
+    border: 1px solid rgba(0,0,0,.1);
+    padding: 0 13px;
+    border-radius: 2px;
+}
+.paginate-links>span {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+}

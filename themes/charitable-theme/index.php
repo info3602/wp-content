@@ -24,18 +24,21 @@
     <a href=<?php echo site_url("/story") ?>>Stories</a>
   </div>
 </div>
+
 <?php
-
-
+$paged = get_query_var('paged') ? get_query_var('paged') : 1;
 $args = array(
-  'post_type' => "any",
-  'posts_per_page' => -1,
+  'post_type' => array(
+    'story',
+    'opportunities',
+    'news',
+  ),
+  'posts_per_page' => 6,
   'orderby' => 'date',
   'order' => 'DESC',
+  'paged' => $paged,
 );
-
 $posts_query = new WP_Query($args);
-
 ?>
 
 <div class="container-xxl py-5">
@@ -44,28 +47,26 @@ $posts_query = new WP_Query($args);
       <?php
       while ($posts_query->have_posts()) {
         $posts_query->the_post();
-        if ((get_post_type() != "post") and (get_post_type() != "page") and (get_post_type() != "donations") and (get_post_type() != "messages")) {
-          ?>
-          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-            <a class="service-item rounded" href=<?php the_permalink(); ?>>
-              <div>
-                <div class="card-img-div">
-                  <img class="card-img" src=<?php echo the_post_thumbnail_url('card') ?> alt="Image">
-                </div>
+        ?>
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+          <a class="service-item rounded" href=<?php the_permalink(); ?>>
+            <div>
+              <div class="card-img-div">
+                <img class="card-img" src=<?php echo the_post_thumbnail_url('card') ?> alt="Image">
               </div>
-              <p class="text-body card-date mb-0">
-                <?php echo the_time("M j, Y") . " | " . strtoupper(get_post_type()); ?>
-              </p>
-              <h5 class="mb-3" style="color:var(--primary);">
-                <?php echo trim(substr(get_the_title(), 0, 35)), (strlen(get_the_title()) > 35) ? " ..." : ""; ?>
-              </h5>
-              <p class="text-body mb-0">
-                <?php echo trim(substr(get_the_content(), 0, 60)), (strlen(get_the_content()) > 35) ? " ..." : ""; ?>
-              </p>
-            </a>
-          </div>
-          <?php
-        }
+            </div>
+            <p class="text-body card-date mb-0">
+              <?php echo the_time("M j, Y") . " | " . strtoupper(get_post_type()); ?>
+            </p>
+            <h5 class="mb-3" style="color:var(--primary);">
+              <?php echo trim(substr(get_the_title(), 0, 35)), (strlen(get_the_title()) > 35) ? " ..." : ""; ?>
+            </h5>
+            <p class="text-body mb-0">
+              <?php echo trim(substr(get_the_content(), 0, 60)), (strlen(get_the_content()) > 35) ? " ..." : ""; ?>
+            </p>
+          </a>
+        </div>
+        <?php
       }
       wp_reset_postdata();
       ?>
@@ -74,7 +75,23 @@ $posts_query = new WP_Query($args);
 </div>
 
 <?php
-echo paginate_links();
+$total_pages = $posts_query->max_num_pages;
+if ($total_pages > 1) {
+  $current_page = max(1, get_query_var('paged'));
+  ?>
+  <div class="paginate-links">
+    <?php
+    echo paginate_links(
+      array(
+        'base' => get_pagenum_link(1) . '%_%',
+        'format' => '/page/%#%',
+        'current' => $current_page,
+        'total' => $total_pages,
+      )
+    );
+    ?>
+  </div>
+  <?php
+}
 get_footer();
-
 ?>

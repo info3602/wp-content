@@ -61,12 +61,15 @@
         </div>
         <?php
       }
-
       ?>
     </div>
   </div>
 </div>
+<div class="paginate-links">
+  <?php
+  echo paginate_links();
+  ?>
+</div>
 <?php
-echo paginate_links();
 get_footer();
 ?>
