@@ -89,11 +89,13 @@
                                         <a href=<?php echo site_url("/our-mission"); ?>
                                             class="dropdown-item <?php echo (is_page("our-mission")) ? "active" : "" ?>">Our
                                             Mission</a>
-                                        <a href=<?php echo site_url("/our-team"); ?>
-                                            class="dropdown-item <?php echo (is_page("our-team")) ? "active" : "" ?>">Our
+                                        &#9;<a href=<?php echo site_url("/our-team"); ?>
+                                            class="dropdown-item <?php echo (is_page("our-team")) ? "active" : "" ?>">&raquo;
+                                            Our
                                             Team</a>
                                         <a href=<?php echo site_url("/our-values"); ?>
-                                            class="dropdown-item <?php echo (is_page("our-values")) ? "active" : "" ?>">Our
+                                            class="dropdown-item <?php echo (is_page("our-values")) ? "active" : "" ?>">&raquo;
+                                            Our
                                             Values</a>
                                     </div>
                                 </div>
