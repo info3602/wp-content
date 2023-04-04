@@ -2,7 +2,7 @@
 
 <!-- Page Header Start -->
 <div class="container-fluid page-header mb-5 p-0"
-    style="background-image: url(<?php echo get_theme_file_uri("img/carousel-3.jpg") ?>);">
+    style="background-image: url(<?php echo get_theme_file_uri("img/donate-0.webp") ?>);">
     <div class="container-fluid page-header-inner py-5">
         <div class="container text-center pb-5">
             <h1 class="display-3 text-white mb-3 animated slideInDown">
@@ -11,17 +11,19 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center text-uppercase">
                     <?php
-                        global $wp_query;
-                        $post = $wp_query->post;
-                        $ancestors = get_post_ancestors($post);
-                        foreach($ancestors as $value){
-                           
-                        ?>  
-                            <li class="breadcrumb-item"><a href="<?php echo get_the_permalink($value);?>"><?php echo get_the_title($value);?></a></li>
+                    global $wp_query;
+                    $post = $wp_query->post;
+                    $ancestors = get_post_ancestors($post);
+                    foreach ($ancestors as $value) {
 
-                    <?php
-                        }?>
-                            <li class="breadcrumb-item text-white active" aria-current="page"><?php the_title()?></li>
+                        ?>
+                        <li class="breadcrumb-item"><a href="<?php echo get_the_permalink($value); ?>"><?php echo get_the_title($value); ?></a></li>
+
+                        <?php
+                    } ?>
+                    <li class="breadcrumb-item text-white active" aria-current="page">
+                        <?php the_title() ?>
+                    </li>
                 </ol>
 
             </nav>
@@ -41,16 +43,16 @@
             <div class="col-lg-6">
                 <div class="row g-3">
                     <div class="col-6 text-end">
-                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src=<?php echo get_template_directory_uri() . "/img/carousel-5.jpg" ?> style="margin-top: 25%;">
+                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src=<?php echo get_template_directory_uri() . "/img/donate-1.webp" ?> style="margin-top: 25%;">
                     </div>
                     <div class="col-6 text-start">
-                        <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src=<?php echo get_template_directory_uri() . "/img/carousel-4.jpg" ?>>
+                        <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src=<?php echo get_template_directory_uri() . "/img/donate-2.webp" ?>>
                     </div>
                     <div class="col-6 text-end">
-                        <img class="img-fluid rounded w-50 wow zoomIn" data-wow-delay="0.5s" src=<?php echo get_template_directory_uri() . "/img/carousel-3.jpg" ?>>
+                        <img class="img-fluid rounded w-50 wow zoomIn" data-wow-delay="0.5s" src=<?php echo get_template_directory_uri() . "/img/donate-3.webp" ?>>
                     </div>
                     <div class="col-6 text-start">
-                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.7s" src=<?php echo get_template_directory_uri() . "/img/carousel-5.jpg" ?>>
+                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.7s" src=<?php echo get_template_directory_uri() . "/img/donate-4.webp" ?>>
                     </div>
                 </div>
             </div>

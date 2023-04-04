@@ -77,16 +77,16 @@ get_header();
       <div class="col-lg-6">
         <div class="row g-3">
           <div class="col-6 text-end">
-            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.5s" src=<?php echo get_template_directory_uri() . "/img/carousel-3.jpg" ?>>
+            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.5s" src=<?php echo get_template_directory_uri() . "/img/front-1.webp" ?>>
           </div>
           <div class="col-6 text-start">
-            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.5s" src=<?php echo get_template_directory_uri() . "/img/carousel-4.jpg" ?>>
+            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.5s" src=<?php echo get_template_directory_uri() . "/img/front-2.webp" ?>>
           </div>
           <div class="col-6 text-end">
-            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.5s" src=<?php echo get_template_directory_uri() . "/img/carousel-5.jpg" ?>>
+            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.5s" src=<?php echo get_template_directory_uri() . "/img/front-3.webp" ?>>
           </div>
           <div class="col-6 text-end">
-            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.5s" src=<?php echo get_template_directory_uri() . "/img/carousel-6.jpg" ?>>
+            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.5s" src=<?php echo get_template_directory_uri() . "/img/front-4.webp" ?>>
           </div>
         </div>
       </div>
@@ -108,9 +108,17 @@ get_header();
       <?php
       $news = new WP_Query(
         array(
-          'posts_per_page' =>
-          -1,
-          'post_type' => 'news'
+          'posts_per_page' => 3,
+          'post_type' => 'news',
+          'orderby' => 'date',
+          'order' => 'DESC',
+          'meta_query' => array(
+            array(
+              'key' => 'reading_time',
+              'compare' => '>=',
+              'value' => 2,
+            )
+          )
         )
       );
       while ($news->have_posts()) {
@@ -221,9 +229,16 @@ get_header();
       <?php
       $stories = new WP_Query(
         array(
-          'posts_per_page' =>
-          -1,
-          'post_type' => 'story'
+          'posts_per_page' => -1,
+          'post_type' => 'story',
+          'meta_key' => 'reading_time',
+          'orderby' => 'meta_value_num',
+          'order' => 'DESC',
+          'date_query' => array(
+            array(
+              'after' => '2023/03/19',
+            )
+          )
         )
       );
       while ($stories->have_posts()) {
@@ -289,9 +304,23 @@ get_header();
       <?php
       $news = new WP_Query(
         array(
-          'posts_per_page' =>
-          -1,
-          'post_type' => 'opportunities'
+          'posts_per_page' => 3,
+          'post_type' => 'opportunities',
+          'meta_key' => 'location',
+          'orderby' => 'meta_value_num',
+          'order' => 'ASC',
+          'date_query' => array(
+            array(
+              'after' => '2023/03/25',
+            )
+          ),
+          'meta_query' => array(
+            array(
+              'key' => 'reading_time',
+              'compare' => '>=',
+              'value' => 1,
+            )
+          )
         )
       );
       while ($news->have_posts()) {

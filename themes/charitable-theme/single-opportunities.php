@@ -2,7 +2,7 @@
 
 <!-- Page Header Start -->
 <div class="container-fluid page-header mb-5 p-0"
-    style="background-image: url(<?php echo get_theme_file_uri("img/carousel-3.jpg") ?>);">
+    style="background-image: url(<?php echo get_theme_file_uri("img/blog-3.webp") ?>);">
     <div class="container-fluid page-header-inner py-5">
         <div class="container text-center pb-5">
             <h1 class="display-3 text-white mb-3 animated slideInDown">
@@ -107,24 +107,23 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
-        <div class="spacer"></div>
-        <div class="post-article col-lg-12">
-            <h6 class="section-title text-start text-primary text-uppercase">
-                Related
-            </h6>
-            <h4 class="text-start text-uppercase">
-                News
-            </h4>
-            <div class="spacer-50"></div>
-            <div class="row g-4">
-                <?php
-                $related = get_field('related_news');
-                if ($related) {
-
-
+        <?php
+        $related = get_field('related_news');
+        if ($related) {
+            ?>
+            <div class="spacer"></div>
+            <div class="post-article col-lg-12">
+                <h6 class="section-title text-start text-primary text-uppercase">
+                    Related
+                </h6>
+                <h4 class="text-start text-uppercase">
+                    News
+                </h4>
+                <div class="spacer-50"></div>
+                <div class="row g-4">
+                    <?php
                     foreach ($related as $item) {
                         ?>
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -148,10 +147,12 @@
                         </div>
                         <?php
                     }
-                }
-                ?>
+                    ?>
+                </div>
             </div>
-        </div>
+            <?php
+        }
+        ?>
     </div>
 </div>
 <!-- Article End -->

@@ -29,6 +29,7 @@
 </head>
 
 <body>
+
     <div class="container-xxl bg-white p-0">
         <!-- Header Start -->
         <div class="container-fluid bg-dark px-0">
@@ -65,20 +66,14 @@
                         <a href=<?php echo site_url(); ?> class="navbar-brand d-block d-lg-none">
                             <h1 class="m-0 text-primary text-uppercase">Charitable</h1>
                         </a>
+                        <a class="js-search-trigger nav-item nav-link search-outer-link"><i class="fa fa-search"
+                                aria-hidden="true"></i></a>
                         <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
                             data-bs-target="#navbarCollapse">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
-                                <?php
-                                // wp_nav_menu(
-                                //     array(
-                                //         'theme_location' => 'header',
-                                //         'menu_class' => "navbar-nav mr-auto py-0",
-                                //     )
-                                // );
-                                ?>
                                 <a href=<?php echo site_url(); ?>
                                     class="nav-item nav-link <?php echo (is_front_page()) ? "active" : "" ?>">Home
                                 </a>
@@ -94,14 +89,17 @@
                                         <a href=<?php echo site_url("/our-mission"); ?>
                                             class="dropdown-item <?php echo (is_page("our-mission")) ? "active" : "" ?>">Our
                                             Mission</a>
-                                        <a href=<?php echo site_url("/our-team"); ?>
-                                            class="dropdown-item <?php echo (is_page("our-team")) ? "active" : "" ?>">Our
+                                        &#9;<a href=<?php echo site_url("/our-team"); ?>
+                                            class="dropdown-item <?php echo (is_page("our-team")) ? "active" : "" ?>">&raquo;
+                                            Our
                                             Team</a>
                                         <a href=<?php echo site_url("/our-values"); ?>
-                                            class="dropdown-item <?php echo (is_page("our-values")) ? "active" : "" ?>">Our
+                                            class="dropdown-item <?php echo (is_page("our-values")) ? "active" : "" ?>">&raquo;
+                                            Our
                                             Values</a>
                                     </div>
                                 </div>
+
                                 <?php
                                 if (is_user_logged_in()) { ?>
                                     <a href=<?php echo wp_logout_url(); ?> class="nav-item nav-link">Logout</a>
@@ -109,6 +107,8 @@
                                     <a href=<?php echo wp_login_url(); ?> class="nav-item nav-link">Login</a>
                                     <a href=<?php echo site_url("/wp-signup.php"); ?> class="nav-item nav-link">Signup</a>
                                 <?php } ?>
+                                <a class="js-search-trigger nav-item nav-link search-inner-link"><i class="fa fa-search"
+                                        aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </nav>

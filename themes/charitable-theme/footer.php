@@ -1,4 +1,18 @@
 <!-- Footer Start -->
+<div class= "search-overlay card">
+    <div class="search-overlay__top card-body">
+        <div class="container input-group">
+            <button class="btn btn-primary" type="button"><i class="bi bi-search"></i></button>
+            <input type="text" class="search-term form-control" placeholder="Search" id="search-term"/>
+            <button class="btn btn-primary" type="button" id = "close"><i class="bi bi-arrow-left-square"></i></button>
+        </div>
+        <div class="container">
+                <div class="search-overlay__results" ></div>
+        </div>
+    </div>
+
+
+</div>
 <div class="container-fluid bg-dark text-light footer wow fadeIn" data-wow-delay="0.1s">
     <div class="container pb-5">
         <div class="row g-5">
