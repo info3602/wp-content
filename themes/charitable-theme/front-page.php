@@ -111,7 +111,7 @@ get_header();
           'posts_per_page' => 3,
           'post_type' => 'news',
           'orderby' => 'date',
-          'order' => 'ASC',
+          'order' => 'DESC',
           'meta_query' => array(
             array(
               'key' => 'reading_time',
@@ -236,7 +236,7 @@ get_header();
           'order' => 'DESC',
           'date_query' => array(
             array(
-              'after' => '2023/03/20',
+              'after' => '2023/03/19',
             )
           )
         )

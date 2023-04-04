@@ -120,7 +120,7 @@
     <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h6 class="section-title text-center text-primary text-uppercase">FEATURED</h6>
-            <h1 class="mb-5"><span class="text-primary text-uppercase">Recent</span> Posts</h1>
+            <h1 class="mb-5"><span class="text-primary text-uppercase">Recent</span> Activity</h1>
         </div>
         <div class="cards row g-4">
             <?php
