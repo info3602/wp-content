@@ -26,6 +26,7 @@ function register_custom_types()
         "description" => "",
         "public" => true,
         "has_archive" => true,
+        "show_in_rest" =>true,
         "rewrite" => ["slug" => "news", "with_front" => true],
         "supports" => ['thumbnail', "title", "editor", "excerpt", "custom-fields", "comments", "author"],
         "menu_icon" => "dashicons-admin-site"
@@ -58,6 +59,7 @@ function register_custom_types()
         "public" => true,
         "show_ui" => true,
         "has_archive" => true,
+        "show_in_rest" =>true,
         "rewrite" => ["slug" => "opportunities", "with_front" => true],
         "query_var" => true,
         "supports" => ["title", "editor", "thumbnail", "excerpt", "custom-fields", "comments", "author"],
@@ -90,6 +92,7 @@ function register_custom_types()
         "description" => "",
         "public" => true,
         "has_archive" => true,
+        "show_in_rest" =>true,
         "rewrite" => ["slug" => "story", "with_front" => true],
         "supports" => ["title", "editor", "thumbnail", "excerpt", "custom-fields", "comments", "author"],
         "menu_icon" => "dashicons-format-quote"
@@ -122,6 +125,7 @@ function register_custom_types()
         "description" => "",
         "public" => true,
         "has_archive" => true,
+        "show_in_rest" =>true,
         "supports" => ['title', 'custom-fields'],
         "rewrite" => ['slug' => 'donations', 'with-front' => true],
         "menu_icon" => "dashicons-money-alt"
@@ -153,6 +157,7 @@ function register_custom_types()
         "labels" => $labels,
         "description" => "",
         "public" => true,
+        "show_in_rest" =>true,
         "has_archive" => true,
         "supports" => ['title', 'custom-fields'],
         "rewrite" => ['slug' => 'messages', 'with-front' => true],
