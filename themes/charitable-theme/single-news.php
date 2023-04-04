@@ -10,9 +10,9 @@
             </h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center text-uppercase">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                    <li class="breadcrumb-item"><a href=<?php echo site_url() ?>>Home</a></li>
+                    <li class="breadcrumb-item"><a href=<?php echo site_url("/news") ?>>News</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Article</li>
                 </ol>
             </nav>
         </div>
@@ -51,7 +51,20 @@
                     <?php echo get_field('extra'); ?>
                 </p>
             </div>
+            <div class="post-article col-lg-12">
+                <p class="mb-4">
+                    <?php
+                    comments_template();
+                    ?>
+                </p>
+            </div>
         </div>
+    </div>
+
+    <?php
+    $related = get_field('related_stories');
+    if ($related) {
+        ?>
         <div class="spacer"></div>
         <div class="post-article col-lg-12">
             <h6 class="section-title text-start text-primary text-uppercase">
@@ -63,7 +76,6 @@
             <div class="spacer-50"></div>
             <div class="row g-4">
                 <?php
-                $related = get_field('related_stories');
                 foreach ($related as $item) {
                     ?>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -90,8 +102,19 @@
                 ?>
             </div>
         </div>
-    </div>
+        <?php
+    }
+    ?>
 </div>
 <!-- Article End -->
+
+<script type="text/javascript">
+    let submit = document.querySelector("#submit");
+    submit.classList.add("btn");
+    submit.classList.add("btn-primary");
+    submit.classList.add("py-md-3");
+    submit.classList.add("px-md-5");
+    submit.classList.add("me-3");
+</script>
 
 <?php get_footer() ?>

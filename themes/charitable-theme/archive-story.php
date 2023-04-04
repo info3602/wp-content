@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <div class="container-fluid page-header mb-5 p-0"
-  style="background-image: url(<?php echo get_theme_file_uri("img/carousel-3.jpg") ?>);">
+  style="background-image: url(<?php echo get_theme_file_uri("img/blog-4.webp") ?>);">
   <div class="container-fluid page-header-inner py-5">
     <div class="container text-center pb-5">
       <h1 class="display-3 text-white mb-3 animated slideInDown">
@@ -22,10 +22,12 @@
   </div>
 </div>
 <div class="category-bar">
-  <a href="<?php echo site_url("/blog") ?>">All</a>
-  <a href="<?php echo site_url("/news") ?>">News</a>
-  <a href="<?php echo site_url("/opportunities") ?>">Volunteer Opportunities</a>
-  <a href="<?php echo site_url("/story") ?>" class="active">Impact Stories</a>
+  <ul class="category-item-container">
+    <a href=<?php echo site_url("/blog") ?>>All</a>
+    <a href=<?php echo site_url("/news") ?>>News</a>
+    <a href=<?php echo site_url("/opportunities") ?>>Opportunities</a>
+    <a href=<?php echo site_url("/story") ?> class="active">Stories</a>
+  </ul>
 </div>
 
 
@@ -58,12 +60,15 @@
         </div>
         <?php
       }
-
       ?>
     </div>
   </div>
 </div>
+<div class="paginate-links">
+  <?php
+  echo paginate_links();
+  ?>
+</div>
 <?php
-echo paginate_links();
 get_footer();
 ?>

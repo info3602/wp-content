@@ -10,9 +10,9 @@
             </h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center text-uppercase">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                    <li class="breadcrumb-item"><a href=<?php echo site_url() ?>>Home</a></li>
+                    <li class="breadcrumb-item"><a href=<?php echo site_url("/opportunities") ?>>Opportunities</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Article</li>
                 </ol>
             </nav>
         </div>
@@ -33,13 +33,22 @@
                     <?php echo the_time('M j, Y') . "  " ?> &bull;
                     <?php echo "  " . get_field('reading_time') . " min read" ?>
                 </h6>
+                <h6 class="">
+                    <?php echo "Location: " . get_field('location') ?>
+                </h6>
                 <div class="spacer-10"></div>
                 <p class="mb-4">
                     <?php echo the_content(); ?>
                 </p>
             </div>
 
-            <div class="spacer-10"></div>
+            <div class="post-article col-lg-12">
+                <p class="mb-4">
+                    <?php
+                    comments_template();
+                    ?>
+                </p>
+            </div>
 
             <div class="container-xxl py-5">
                 <div class="container">
@@ -98,23 +107,23 @@
                     </div>
                 </div>
             </div>
-
         </div>
-        <div class="spacer"></div>
-        <div class="post-article col-lg-12">
-            <h6 class="section-title text-start text-primary text-uppercase">
-                Related
-            </h6>
-            <h4 class="text-start text-uppercase">
-                News
-            </h4>
-            <div class="spacer-50"></div>
-            <div class="row g-4">
-                <?php
-                $related = get_field('related_news');
-                if ($related) {
 
-
+        <?php
+        $related = get_field('related_news');
+        if ($related) {
+            ?>
+            <div class="spacer"></div>
+            <div class="post-article col-lg-12">
+                <h6 class="section-title text-start text-primary text-uppercase">
+                    Related
+                </h6>
+                <h4 class="text-start text-uppercase">
+                    News
+                </h4>
+                <div class="spacer-50"></div>
+                <div class="row g-4">
+                    <?php
                     foreach ($related as $item) {
                         ?>
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -138,13 +147,24 @@
                         </div>
                         <?php
                     }
-                }
-                ?>
+                    ?>
+                </div>
             </div>
-        </div>
+            <?php
+        }
+        ?>
     </div>
 </div>
 <!-- Article End -->
+
+<script type="text/javascript">
+    let submit = document.querySelector("#submit");
+    submit.classList.add("btn");
+    submit.classList.add("btn-primary");
+    submit.classList.add("py-md-3");
+    submit.classList.add("px-md-5");
+    submit.classList.add("me-3");
+</script>
 
 <?php
 get_footer()
