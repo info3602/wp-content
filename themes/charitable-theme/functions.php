@@ -111,6 +111,11 @@ function create_message()
     wp_die();
 }
 
+add_filter('login_headerurl','ourHeaderUrl');
+ function ourHeaderUrl(){
+    return esc_url(site_url('/'));
+ }
+
 function wpb_login_background() { 
 
     ?>
@@ -118,26 +123,33 @@ function wpb_login_background() {
     <style type="text/css">
 
         body.login {
-            background-image: url("<?php echo get_template_directory_uri() . "/img/backgroup.jpeg"  ?>"); 
+            background-image: url("<?php echo get_template_directory_uri() . "/img/background.jpg"  ?>"); 
             /* filter: blur(6px); 
             -webkit-filter:blur(6px);  */
             /* padding-top:10%; */
             
-            height:100%;
+            height:90%;
             width:100%;
-            background-size: 100% 100%;
+            background-size: 100% 80%;
             background-color: #0F172B;
             background-repeat: no-repeat;
         }
         
         #nav > a{
-            color:#FEA116;
-        }
+            color:#FEA116 !important;
+            
+        }    
+        #backtoblog >a {
+            color:#FEA116 !important;
+        }   
+
+ 
 
         #login h1 a, .login h1 a {
         background-image: url(<? echo get_template_directory_uri() . "/img/logo02.png" ?>);
-        height:130px;
+        height:150px;
         width:250px;
+    
         background-size: 250px 250px;
         background-repeat: no-repeat;
         
