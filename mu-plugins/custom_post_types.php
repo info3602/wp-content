@@ -26,10 +26,12 @@ function register_custom_types()
         "description" => "",
         "public" => true,
         "has_archive" => true,
-        "show_in_rest" =>true,
+        "show_in_rest" => true,
         "rewrite" => ["slug" => "news", "with_front" => true],
         "supports" => ['thumbnail', "title", "editor", "excerpt", "custom-fields", "comments", "author"],
-        "menu_icon" => "dashicons-admin-site"
+        "menu_icon" => "dashicons-admin-site",
+        "capability_type" => "News",
+        "map_meta_cap" => true,
     ];
 
     register_post_type("news", $args);
@@ -59,11 +61,13 @@ function register_custom_types()
         "public" => true,
         "show_ui" => true,
         "has_archive" => true,
-        "show_in_rest" =>true,
+        "show_in_rest" => true,
         "rewrite" => ["slug" => "opportunities", "with_front" => true],
         "query_var" => true,
         "supports" => ["title", "editor", "thumbnail", "excerpt", "custom-fields", "comments", "author"],
-        "menu_icon" => "dashicons-heart"
+        "menu_icon" => "dashicons-heart",
+        "capability_type" => "Opportunities",
+        "map_meta_cap" => true,
     ];
 
     register_post_type("opportunities", $args);
@@ -92,10 +96,12 @@ function register_custom_types()
         "description" => "",
         "public" => true,
         "has_archive" => true,
-        "show_in_rest" =>true,
+        "show_in_rest" => true,
         "rewrite" => ["slug" => "story", "with_front" => true],
         "supports" => ["title", "editor", "thumbnail", "excerpt", "custom-fields", "comments", "author"],
-        "menu_icon" => "dashicons-format-quote"
+        "menu_icon" => "dashicons-format-quote",
+        "capability_type" => "Stories",
+        "map_meta_cap" => true,
     ];
 
     register_post_type("story", $args);
@@ -125,10 +131,12 @@ function register_custom_types()
         "description" => "",
         "public" => true,
         "has_archive" => true,
-        "show_in_rest" =>true,
+        "show_in_rest" => true,
         "supports" => ['title', 'custom-fields'],
         "rewrite" => ['slug' => 'donations', 'with-front' => true],
-        "menu_icon" => "dashicons-money-alt"
+        "menu_icon" => "dashicons-money-alt",
+        "capability_type" => "Donations",
+        "map_meta_cap" => true,
     ];
 
     register_post_type("donations", $args);
@@ -157,11 +165,13 @@ function register_custom_types()
         "labels" => $labels,
         "description" => "",
         "public" => true,
-        "show_in_rest" =>true,
+        "show_in_rest" => true,
         "has_archive" => true,
         "supports" => ['title', 'custom-fields'],
         "rewrite" => ['slug' => 'messages', 'with-front' => true],
-        "menu_icon" => "dashicons-format-status"
+        "menu_icon" => "dashicons-format-status",
+        "capability_type" => "Messages",
+        "map_meta_cap" => true,
     ];
 
     register_post_type("messages", $args);

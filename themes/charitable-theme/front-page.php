@@ -108,9 +108,17 @@ get_header();
       <?php
       $news = new WP_Query(
         array(
-          'posts_per_page' =>
-          -1,
-          'post_type' => 'news'
+          'posts_per_page' => 3,
+          'post_type' => 'news',
+          'orderby' => 'date',
+          'order' => 'ASC',
+          'meta_query' => array(
+            array(
+              'key' => 'reading_time',
+              'compare' => '>=',
+              'value' => 2,
+            )
+          )
         )
       );
       while ($news->have_posts()) {
@@ -221,9 +229,16 @@ get_header();
       <?php
       $stories = new WP_Query(
         array(
-          'posts_per_page' =>
-          -1,
-          'post_type' => 'story'
+          'posts_per_page' => -1,
+          'post_type' => 'story',
+          'meta_key' => 'reading_time',
+          'orderby' => 'meta_value_num',
+          'order' => 'DESC',
+          'date_query' => array(
+            array(
+              'after' => '2023/03/20',
+            )
+          )
         )
       );
       while ($stories->have_posts()) {
@@ -289,9 +304,23 @@ get_header();
       <?php
       $news = new WP_Query(
         array(
-          'posts_per_page' =>
-          -1,
-          'post_type' => 'opportunities'
+          'posts_per_page' => 3,
+          'post_type' => 'opportunities',
+          'meta_key' => 'location',
+          'orderby' => 'meta_value_num',
+          'order' => 'ASC',
+          'date_query' => array(
+            array(
+              'after' => '2023/03/25',
+            )
+          ),
+          'meta_query' => array(
+            array(
+              'key' => 'reading_time',
+              'compare' => '>=',
+              'value' => 1,
+            )
+          )
         )
       );
       while ($news->have_posts()) {

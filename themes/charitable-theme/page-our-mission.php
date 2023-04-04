@@ -10,22 +10,24 @@
             </h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center text-uppercase">
-                <?php
-                        global $wp_query;
-                        $post = $wp_query->post;
-                        $ancestors = get_post_ancestors($post);
-                        if(count($ancestors)!= 0){
-                            $ancestors = array_reverse($ancestors);
-                            foreach($ancestors as $value){
-                           
-                        ?>  
-                                <li class="breadcrumb-item"><a href="<?php echo get_the_permalink($value);?>"><?php echo get_the_title($value);?></a></li>
-
                     <?php
-                            }
-                        }?>
-                                <li class="breadcrumb-item text-white active" aria-current="page"><?php the_title()?></li>
-                
+                    global $wp_query;
+                    $post = $wp_query->post;
+                    $ancestors = get_post_ancestors($post);
+                    if (count($ancestors) != 0) {
+                        $ancestors = array_reverse($ancestors);
+                        foreach ($ancestors as $value) {
+
+                            ?>
+                            <li class="breadcrumb-item"><a href="<?php echo get_the_permalink($value); ?>"><?php echo get_the_title($value); ?></a></li>
+
+                            <?php
+                        }
+                    } ?>
+                    <li class="breadcrumb-item text-white active" aria-current="page">
+                        <?php the_title() ?>
+                    </li>
+
                 </ol>
             </nav>
         </div>
@@ -111,6 +113,63 @@
 </div>
 <!-- About End -->
 
+<div class="spacer"></div>
 
+<!-- Recent Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title text-center text-primary text-uppercase">FEATURED</h6>
+            <h1 class="mb-5"><span class="text-primary text-uppercase">Recent</span> Posts</h1>
+        </div>
+        <div class="cards row g-4">
+            <?php
+            $stories = new WP_Query(
+                array(
+                    'posts_per_page' => 6,
+                    'post_type' => array(
+                        'story',
+                        'opportunities',
+                        'news'
+                    ),
+                    'orderby' => 'date',
+                    'order' => 'DESC',
+                    'meta_query' => array(
+                        array(
+                            'key' => 'reading_time',
+                            'compare' => '>=',
+                            'value' => 3,
+                        )
+                    )
+                )
+            );
+            while ($stories->have_posts()) {
+                $stories->the_post(); ?>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <a class="service-item rounded" href=<?php the_permalink(); ?>>
+                        <div>
+                            <div class="card-img-div">
+                                <img class="card-img" src=<?php echo the_post_thumbnail_url('card') ?> alt="Image">
+                            </div>
+                        </div>
+                        <p class="text-body card-date mb-0">
+                            <?php echo the_time("M j, Y") . " | " . strtoupper(get_post_type()); ?>
+                        </p>
+                        <h5 class="mb-3" style="color:var(--primary);">
+                            <?php echo trim(substr(get_the_title(), 0, 35)), (strlen(get_the_title()) > 35) ? " ..." : ""; ?>
+                        </h5>
+                        <p class="text-body mb-3">
+                            <?php echo trim(substr(get_the_content(), 0, 60)), (strlen(get_the_content()) > 60) ? " ..." : ""; ?>
+                        </p>
+                    </a>
+                </div>
+                <?php
+            }
+            wp_reset_postdata();
+            ?>
+        </div>
+    </div>
+</div>
+<!-- Recent End -->
 
 <?php get_footer(); ?>

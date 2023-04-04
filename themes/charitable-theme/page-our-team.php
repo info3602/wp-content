@@ -100,7 +100,7 @@
                         </div>
                     </div>
                     <div class="text-center p-4 mt-3">
-                        <h5 class="fw-bold mb-0">Trey James</h5>
+                        <h5 class="fw-bold mb-0">James Murray</h5>
                         <small>Co-Founder</small>
                     </div>
                 </div>
