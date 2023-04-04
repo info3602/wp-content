@@ -954,8 +954,29 @@ li.current_page_item a {
     padding: 0 13px;
     border-radius: 2px;
 }
+
 .paginate-links>span {
     background: var(--primary);
     border-color: var(--primary);
     color: #fff;
+}
+
+.search-outer-link {
+  position: absolute;
+  top: 20px;
+  right: 70px;
+  font-size: 1.2em;
+  color: white!important;
+}
+
+@media (min-width: 992px) {
+  .search-outer-link {
+    display: none;
+  }
+}
+
+@media (max-width: 992px) {
+  .search-inner-link {
+    display: none;
+  }
 }

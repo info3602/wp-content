@@ -66,14 +66,14 @@
                         <a href=<?php echo site_url(); ?> class="navbar-brand d-block d-lg-none">
                             <h1 class="m-0 text-primary text-uppercase">Charitable</h1>
                         </a>
+                        <a class="js-search-trigger nav-item nav-link search-outer-link"><i class="fa fa-search"
+                                aria-hidden="true"></i></a>
                         <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
                             data-bs-target="#navbarCollapse">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
-
-                                <a id="js-search-trigger" class = "nav-item nav-link"><i class="fa fa-search" aria-hidden="true"></i></a>
                                 <a href=<?php echo site_url(); ?>
                                     class="nav-item nav-link <?php echo (is_front_page()) ? "active" : "" ?>">Home
                                 </a>
@@ -97,7 +97,7 @@
                                             Values</a>
                                     </div>
                                 </div>
-                                
+
                                 <?php
                                 if (is_user_logged_in()) { ?>
                                     <a href=<?php echo wp_logout_url(); ?> class="nav-item nav-link">Logout</a>
@@ -105,6 +105,8 @@
                                     <a href=<?php echo wp_login_url(); ?> class="nav-item nav-link">Login</a>
                                     <a href=<?php echo site_url("/wp-signup.php"); ?> class="nav-item nav-link">Signup</a>
                                 <?php } ?>
+                                <a class="js-search-trigger nav-item nav-link search-inner-link"><i class="fa fa-search"
+                                        aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </nav>
